@@ -16,18 +16,6 @@
   parent = "Categories"
   name = "Linux"
   url = "/categories/linux"
-# [[main]]
-#   parent = "Categories"
-#   name = "Kubernetes"
-#   url = "/categories/kubernetes/"
-# [[main]]
-#   parent = "Categories"
-#   name = "Kubernetes"
-#   url = "/categories/kubernetes/"
-# [[main]]
-#   parent = "Categories"
-#   name = "Docker"
-#   url = "/categories/docker/"
 
 
 [[main]]
