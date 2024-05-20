@@ -1,0 +1,66 @@
+#[[main]]
+#  name = "Linux"
+#  url = "/categories/linux"
+#  weight = -110
+
+# Submenus are done this way: parent -> identifier
+[[main]]
+  name = "Categories"
+  identifier = "Categories"
+  weight = -108
+[[main]]
+  parent = "Categories"
+  name = "General"
+  url = "/categories/general"  
+[[main]]
+  parent = "Categories"
+  name = "Linux"
+  url = "/categories/linux"
+# [[main]]
+#   parent = "Categories"
+#   name = "Kubernetes"
+#   url = "/categories/kubernetes/"
+# [[main]]
+#   parent = "Categories"
+#   name = "Kubernetes"
+#   url = "/categories/kubernetes/"
+# [[main]]
+#   parent = "Categories"
+#   name = "Docker"
+#   url = "/categories/docker/"
+
+
+[[main]]
+  name = "About"
+  url = "about/"
+  weight = -106
+
+# social menu links
+
+[[social]]
+  name = "github"
+  type = "social"
+  weight = 1
+  url = "https://github.com/anandvyas"
+[[social]]    
+  name = "linkedin"
+  weight = 2
+  url = "https://www.linkedin.com/in/anandvyaas/"
+[[social]]
+  name = "rss"
+  weight = 4
+  url = "index.xml"
+
+# other supported social links
+# name = "youtube"
+# url = "https://www.youtube.com/#"
+# name = "facebook"
+# url = "https://facebook.com/#"
+# name = "instagram"
+# url = "https://instagram.com/#"
+# name = "stackoverflow"
+# url = "https://stackoverflow.com/#"
+# name = "gitlab"
+# url = "https://gitlab.com/#"
+# name = "discord"
+# url = "https://discord.gg/#"

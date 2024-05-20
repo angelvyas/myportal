@@ -1,0 +1,5 @@
+baseURL = 'https://bvkatv.com/'
+languageCode = 'en-us'
+title = 'Angel Vyas'
+theme = 'clarity'
+unsafe = true
