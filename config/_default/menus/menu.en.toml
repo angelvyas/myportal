@@ -28,20 +28,26 @@
   type = "social"
   weight = 1
   url = "https://github.com/angelvyas"
+
 [[social]]    
   name = "linkedin"
   weight = 2
   url = "https://www.linkedin.com/in/angelvyas/"
+
 [[social]]
   name = "rss"
   weight = 4
   url = "index.xml"
+
 [[social]]
-# other supported social links
   name = "youtube"
   url = "https://www.youtube.com/channel/UC-fhsxsVhiTvGcpt7-K-eeQ"
+
+[[social]]
   name = "facebook"
   url = "https://www.facebook.com/angelvyaas/"
+
+[[social]]
   name = "instagram"
   url = "https://www.instagram.com/angelvyaas/"
 
