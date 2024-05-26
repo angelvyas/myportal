@@ -18,6 +18,8 @@ categories:
 
 Markdown is a lightweight markup language that allows you to add formatting elements to plaintext text documents. Developed by John Gruber in 2004.
 
+<!--more-->
+
 ### HEADINGS
 
 ```md
