@@ -1,9 +1,3 @@
-#[[main]]
-#  name = "Linux"
-#  url = "/categories/linux"
-#  weight = -110
-
-# Submenus are done this way: parent -> identifier
 [[main]]
   name = "Categories"
   identifier = "Categories"
@@ -11,11 +5,17 @@
 [[main]]
   parent = "Categories"
   name = "General"
-  url = "/categories/general"  
+  url = "/categories/general"
+  weight = 10  
 [[main]]
   parent = "Categories"
-  name = "Linux"
-  url = "/categories/linux"
+  name = "Python"
+  url = "/categories/python"
+[[main]]
+  parent = "Categories"
+  name = "C Language"
+  url = "/categories/c"
+  
 
 
 [[main]]
