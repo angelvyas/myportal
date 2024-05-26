@@ -4,18 +4,17 @@ date: 2024-02-05
 draft:  false   
 featured: false  
 description: "MD - Markdown"
-thumbnail: "/posts/markdown/images/md.png"
-featureImage: "/posts/markdown/images/md.png" 
-shareImage: "/posts/markdown/images/md.png"
+thumbnail: "/posts/markdown/images/markdown.png"
+featureImage: "/posts/markdown/images/markdown.png" 
+shareImage: "/posts/markdown/images/markdown.png"
 author: "Angel Vyas"
+math: true
+enableEmoji: true
 tags:
     - Markdown
 categories:     
     - General
 ---
-
-
-## WHAT IS MARKDOWN ? 
 
 Markdown is a lightweight markup language that allows you to add formatting elements to plaintext text documents. Developed by John Gruber in 2004.
 
@@ -34,8 +33,6 @@ Markdown is a lightweight markup language that allows you to add formatting elem
 ### Heading 3
 #### Heading 4
 ##### Heading 5
-
-
 
 ### Text Styles
 
@@ -137,7 +134,6 @@ g { color: Green }
 
 <details>
   <summary>Markdown</summary>
-
 -  <kbd>[Markdown Editor](https://binarytree.dev/me)</kbd>
 -  <kbd>[Table Of Content](https://binarytree.dev/toc)</kbd>
 -  <kbd>[Markdown Table Generator](https://binarytree.dev/md_table_generator)</kbd>
@@ -145,8 +141,12 @@ g { color: Green }
 </details>
 
 ### Horizontal lines
+```md
 ---
 ***
 ___
-
-
+```
+**Output**
+---
+***
+___
