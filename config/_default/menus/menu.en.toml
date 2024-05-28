@@ -16,7 +16,10 @@
   name = "C Language"
   url = "/categories/c"
   
-
+[[main]]
+  name = "Gallery"
+  url = "/gallery/"
+  weight = -107
 
 [[main]]
   name = "About"

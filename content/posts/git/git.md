@@ -1,7 +1,7 @@
 ---
 title: 'GIT - Global Information Tracker'
 date: 2024-24-05
-draft:  false   
+draft:  true   
 featured: false  
 description: "GIT - Global Information Tracker"
 thumbnail: "/posts/git/images/git.png"
@@ -15,6 +15,8 @@ categories:
 ---
 
 Git is a distributed version control system that tracks versions of files.
+
+<!--more-->
 
 First let's take a look at different `Version Control Systems`, so we have mainly have two types of Version Control System namely Centralized version control and Distributed version control.
 
