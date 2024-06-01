@@ -17,8 +17,7 @@ categories:
 ---
 
 Markdown is a lightweight markup language that allows you to add formatting elements to plaintext text documents. Developed by John Gruber in 2004.
-
-<!--more-->
+In md files we can use certain Html commands easily.
 
 ### HEADINGS
 
@@ -63,9 +62,9 @@ o { color: Orange }
 g { color: Green }
 </style>
 
-- <r>TODO:</r> Important thing to do
-- <o>TODO:</o> Less important thing to do
-- <g>DONE:</g> Breath deeply and improve karma
+- <r>TODO:</r> Hi
+- <o>TODO:</o> Hi
+- <g>DONE:</g> Hi
 ```
 
 <style>
@@ -74,9 +73,9 @@ o { color: Orange }
 g { color: Green }
 </style>
 
-- <r>TODO:</r> Important thing to do
-- <o>TODO:</o> Less important thing to do
-- <g>DONE:</g> Breath deeply and improve karma
+- <r>TODO:</r> Hi
+- <o>TODO:</o> Hi
+- <g>DONE:</g> Hi
 
 ### TABLES in Markdown
 
@@ -109,17 +108,17 @@ g { color: Green }
 ```md
 | Default    | Left align | Center align | Right align |
 | ---------- | :--------- | :----------: | ----------: |
-| 9999999999 | 9999999999 | 9999999999   | 9999999999  |
-| 999999999  | 999999999  | 999999999    | 999999999   |
-| 99999999   | 99999999   | 99999999     | 99999999    |
-| 9999999    | 9999999    | 9999999      | 9999999     |
+| 1111111111 | 1111111111 | 111111111    | 1111111111  |
+| 111111111  | 111111111  | 111111111    | 111111111   |
+| 11111111   | 11111111   | 11111111     | 11111111    |
+| 1111111    | 1111111    | 1111111      | 1111111     |
 ```
 | Default    | Left align | Center align | Right align |
 | ---------- | :--------- | :----------: | ----------: |
-| 9999999999 | 9999999999 | 9999999999   | 9999999999  |
-| 999999999  | 999999999  | 999999999    | 999999999   |
-| 99999999   | 99999999   | 99999999     | 99999999    |
-| 9999999    | 9999999    | 9999999      | 9999999     |
+| 1111111111 | 1111111111 | 1111111111   | 1111111111  |
+| 111111111  | 111111111  | 111111111    | 111111111   |
+| 11111111   | 11111111   | 11111111     | 11111111    |
+| 1111111    | 1111111    | 1111111      | 1111111     |
 
 ### Blockquotes
 > Hi my name is Angel Vyas.
@@ -152,3 +151,5 @@ ___
 ---
 ***
 ___
+<br>
+
