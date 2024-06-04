@@ -4,9 +4,9 @@ date: 2024-02-05
 draft:  false   
 featured: false  
 description: "Python - Cheatsheet"
-thumbnail: "/posts/markdown/images/markdown.png"
-featureImage: "/posts/markdown/images/markdown.png" 
-shareImage: "/posts/markdown/images/markdown.png"
+thumbnail: "/posts/python/images/python.png"
+featureImage: "/posts/python/images/python.png" 
+shareImage: "/posts/python/images/python.png"
 author: "Angel Vyas"
 math: true
 enableEmoji: true
