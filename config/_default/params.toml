@@ -4,7 +4,7 @@ enableSearch = false
 # socials
 twitter = "@angelvyas"
 largeTwitterCard = false # set to true if you want to show a large twitter card image. The default is a small twitter card image
-introDescription = "Hello! I'm a B.Tech student specializing in Computer Science with a focus on Data Science and AI, and in my free time, I enjoy playing the guitar and flute."
+introDescription = "HHi all, I'm Angel Vyas, currently pursuing Btech in Data Science, on my website I'll be sharing my day-to-day experiences and knowledge."
 introURL = "about/" # set the url for the 'read more' button below the introDescription, or set to false to not show the button
 description = "Hello! I'm a B.Tech student specializing in Computer Science with a focus on Data Science and AI, and in my free time, I enjoy playing the guitar and flute."
 keywords = ["Angel Vyas","Blogger","Data science","AI","Machine learing","Python"]
@@ -138,7 +138,7 @@ since = 2022
 # website author
 [author]
 name = "Angel Vyas"
-photo = "images/profile.png" #include this if you would like to show the author photo on the sidebar
+photo = "images/690.jpg" #include this if you would like to show the author photo on the sidebar
 
 [plausible_analytics]
 enable = false # to enable plausible analytics set to true.

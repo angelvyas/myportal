@@ -3,6 +3,7 @@ title: "About Me"
 date: 2022-01-05
 ---
 
-![Angel Vyas:left::about_profile](/images/profile.png)
+![:left::about_profile](/images/690.jpg)
 
-Hello! I'm a B.Tech student specializing in Computer Science with a focus on Data Science and AI, and in my free time, I enjoy playing the guitar and flute.
+Hi all, I'm Angel Vyas, currently pursuing Btech in Data Science, on my website I'll be sharing my day-to-day experiences and knowledge. 
+Thankyou for visiting my page.
