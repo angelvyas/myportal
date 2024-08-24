@@ -1,5 +1,5 @@
 ---
-title: "Arrays"
+title: "Arrays in C"
 date: 2024-08-24
 draft:  false
 featured: false  

@@ -1,6 +1,6 @@
 ---
 title: 'Basics of C'
-date: 2024-24-05
+date: 2024-08-24
 draft:  false
 featured: false  
 description: "Basics of C-language"
@@ -9,7 +9,7 @@ featureImage: "/posts/c/images/cc.png"
 shareImage: "/posts/c/images/cc.png"
 author: "Angel Vyas"
 tags:
-    - Cntrol String
+    - Control String
     - Global variable
     - String
     - Switch Statement
@@ -21,8 +21,13 @@ tags:
 categories:     
     - C Language
 ---
-## Basics:
-### *Control String*
+
+C is a powerful, general-purpose programming language that provides control over system resources and efficient execution. This post will cover some essential concepts in C that every programmer should understand: Control Strings, Global Variables, Strings, Switch Statements, Ternary Operators, Unformatted Input/Output, Bitwise Operators, and Algebraic Operations.
+
+### Control String
+
+Control strings are used in functions like `printf` and `scanf` to format input and output. They consist of placeholders like %d for integers, %f for floating-point numbers, and %s for strings. Here's a simple example:
+
 ```c
 #include<stdio.h>
 int main()
@@ -32,18 +37,20 @@ int main()
     char z[] = "angelvyas";
     long p = 2222222222;
     unsigned w = 3.4;
+
     printf("the value of x is %d", x);
     printf("\n the vlaue of y is %f", y);
     printf("\n the value of char is %c", z[4]);
     printf("\b the value of p is %ld", p);
     printf ("\t the value of w is %u", w);
     return 0;
-
 }
 ```
-</br>
 
-### *Defining a variable globally*
+### Global Variables
+
+Global variables are declared outside of any function and can be accessed by any function in the program. They retain their value throughout the program's execution. Use global variables sparingly, as they can make debugging difficult if overused.
+
 ```c
 #include <stdio.h>
 #define x 20
