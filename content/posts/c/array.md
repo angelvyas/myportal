@@ -12,6 +12,7 @@ tags:
     - C Language
     - Arrays
     - Examples
+    
 categories:     
     - C Language
 ---
@@ -92,7 +93,7 @@ return 0;
 ```
 </br>
 
-### *to print the characters of an Array*
+### *To print the characters of an Array*
 ```c
 #include<stdio.h>
 void main{

@@ -9,14 +9,8 @@ featureImage: "/posts/c/images/cc.png"
 shareImage: "/posts/c/images/cc.png"
 author: "Angel Vyas"
 tags:
-    - Control String
-    - Global variable
-    - String
-    - Switch Statement
-    - Turnery
-    - Unformatted
-    - Bitwise Operator
-    - Algebraic Operations
+    - C Language
+    - Basics of C
     
 categories:     
     - C Language
@@ -145,7 +139,7 @@ int main()
 ```
 </br>
 
-### *Unformatted*
+### *Unformattedinputoutput*
 ```c
 #include <stdio.h>
 
@@ -212,7 +206,7 @@ int main()
 ```
 </br>
 
-### *to take input operator and operands then perform the operation.*
+### *To take input operator and operands then perform the operation.*
 ```c
 #include <stdio.h>
 #include <math.h>

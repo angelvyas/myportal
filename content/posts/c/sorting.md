@@ -1,6 +1,6 @@
 ---
 title: 'Sorting'
-date: 2024-24-05
+date: 2024-08-24
 draft:  false
 featured: false  
 description: "Sorting in C-language"
@@ -21,7 +21,7 @@ categories:
 
 Sorting in C language refers to arranging the elements of an array in a specific order, typically in ascending or descending order.
 
-## Sorting
+## Sorting:
 ### *Bubble Sort*
 ```c
 #include <stdio.h>

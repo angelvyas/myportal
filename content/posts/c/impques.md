@@ -1,6 +1,6 @@
 ---
-title: 'Important Ques'
-date: 2024-24-05
+title: 'Important Questions of C-language'
+date: 2024-08-24
 draft:  false
 featured: false  
 description: "Important Ques of C-language"
@@ -9,27 +9,17 @@ featureImage: "/posts/c/images/cc.png"
 shareImage: "/posts/c/images/cc.png"
 author: "Angel Vyas"
 tags:
-    - Average 
-    - Binary Equivalent
-    - Prime Number
-    - Conditional Statement
-    - find greatest of all values
-    - Min Max of a list
-    - Multiplication table
-    - range of a value
-    - palindrome
-    - roots of quadratic
-    - reverse of a value
-    - using sizeof function
-    - sum of digits
-    - Calculate SI and CI
+    - Questions
+    - C Language
 
     
 categories:     
     - C Language
 ---
 
-### to find average of two numbers.
+    
+
+### To find average of two numbers.
 ```c
 #include <stdio.h>
 int main()
@@ -45,7 +35,7 @@ int main()
 ```
 </br>
 
-### to find the binary equivalent of a number.
+### To find the binary equivalent of a number.
 ```c
 #include <stdio.h>//LEARN!!!
 int main()
@@ -198,7 +188,7 @@ void main()
 ```
 </br>
 
-### to find the greatest of all of the given values.
+### To find the greatest of all of the given values.
 ```c
 #include <stdio.h>
 int main()
@@ -223,7 +213,7 @@ int main()
 ```
 </br>
 
-### to print the min and max from the list.
+### To print the min and max from the list.
 ```c
 #include <stdio.h>
 int main()
@@ -262,7 +252,7 @@ int main()
 ```
 </br>
 
-### to print the multiplication table of a given number.
+### To print the multiplication table of a given number.
 ```c
 #include <stdio.h>
 int main()
@@ -278,7 +268,7 @@ int main()
 ```
 </br>
 
-### to find the palindrome of a given value.
+### To find the palindrome of a given value.
 ```c
 #include <stdio.h>
 int main()
@@ -306,7 +296,7 @@ int main()
 ```
 </br>
 
-### to check whether the given number is prime or not.
+### To check whether the given number is prime or not.
 ```c
 #include <stdio.h>
 int main()
@@ -334,7 +324,7 @@ int main()
 ```
 </br>
 
-### to find the roots of a quadratic equation.
+### To find the roots of a quadratic equation.
 ```c
 #include <stdio.h>
 #include <math.h>
@@ -363,7 +353,7 @@ int main()
 ```
 </br>
 
-### range of a value.
+### Range of a value.
 ```c
 #include<stdio.h>
 int main()
@@ -375,7 +365,7 @@ int main()
 ```
 </br>
 
-### to find the reverse of a given number.
+### To find the reverse of a given number.
 ```c
 #include <stdio.h>
 int main()
@@ -395,7 +385,7 @@ int main()
 ```
 </br>
 
-### to calculate simple of compound interest.
+### To calculate simple of compound interest.
 ```c
 #include <stdio.h>
 int main()
@@ -438,7 +428,7 @@ int main(){
 ```
 </br>
 
-### to find the sum of the digits of a number.
+### To find the sum of the digits of a number.
 ```c
 #include <stdio.h>
 int main()

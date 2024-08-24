@@ -1,6 +1,6 @@
 ---
 title: 'Searching in C'
-date: 2024-24-05
+date: 2024-08-24
 draft:  false
 featured: false  
 description: "Searching in C-language"

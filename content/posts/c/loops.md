@@ -1,6 +1,6 @@
 ---
 title: 'Loops'
-date: 2024-24-05
+date: 2024-08-24
 draft:  false
 featured: false  
 description: "Loops in C-languge"
