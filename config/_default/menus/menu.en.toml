@@ -14,7 +14,7 @@
 [[main]]
   parent = "Categories"
   name = "C Language"
-  url = "/categories/c"
+  url = "/categories/c-language"
   
 [[main]]
   name = "Gallery"
