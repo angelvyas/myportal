@@ -3,16 +3,13 @@ title: 'Important Questions of C-language'
 date: 2024-08-24
 draft:  false
 featured: false  
-description: "Important Ques of C-language"
+description: "Important Questions of C-language"
 thumbnail: "/posts/c/images/cc.png"
 featureImage: "/posts/c/images/cc.png" 
 shareImage: "/posts/c/images/cc.png"
 author: "Angel Vyas"
 tags:
-    - Questions
     - C Language
-
-    
 categories:     
     - C Language
 ---

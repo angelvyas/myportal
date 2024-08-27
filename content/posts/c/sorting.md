@@ -1,5 +1,5 @@
 ---
-title: 'Sorting'
+title: 'Sorting in C-language'
 date: 2024-08-24
 draft:  false
 featured: false  
@@ -10,11 +10,6 @@ shareImage: "/posts/c/images/sorting.png"
 author: "Angel Vyas"
 tags:
     - C Language
-    - Sorting
-    - Examples
-    - bubble Sort
-    - Insertion Sort 
-    - Selection Sort
 categories:     
     - C Language
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'Pointers in C'
+title: 'Pointers in C-language'
 date: 2024-08-24
 draft:  false
 featured: false  
@@ -10,7 +10,6 @@ shareImage: "/posts/c/images/2.png"
 author: "Angel Vyas"
 tags:
     - C Language
-    - Pointers
 categories:     
     - C Language
 ---

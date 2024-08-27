@@ -1,16 +1,15 @@
 ---
-title: 'Loops'
+title: 'Loops in C-language'
 date: 2024-08-24
 draft:  false
 featured: false  
-description: "Loops in C-languge"
+description: "Loops in C-language"
 thumbnail: "/posts/c/images/loops.jpg"
 featureImage: "/posts/c/images/loops.jpg" 
 shareImage: "/posts/c/images/loops.jpg"
 author: "Angel Vyas"
 tags:
     - C Language
-    - loops
 categories:     
     - C Language
 ---

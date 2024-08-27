@@ -1,5 +1,5 @@
 ---
-title: 'Searching in C'
+title: 'Searching in C-language'
 date: 2024-08-24
 draft:  false
 featured: false  
@@ -10,7 +10,6 @@ shareImage: "/posts/c/images/search.jpg"
 author: "Angel Vyas"
 tags:
     - C Language
-    - Searching
 categories:     
     - C Language
 ---

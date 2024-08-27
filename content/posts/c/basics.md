@@ -1,5 +1,5 @@
 ---
-title: 'Basics of C'
+title: 'Basics of C-language'
 date: 2024-08-24
 draft:  false
 featured: false  
@@ -10,8 +10,6 @@ shareImage: "/posts/c/images/cc.png"
 author: "Angel Vyas"
 tags:
     - C Language
-    - Basics of C
-    
 categories:     
     - C Language
 ---

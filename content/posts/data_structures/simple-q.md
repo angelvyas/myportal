@@ -1,5 +1,5 @@
 ---
-title: "Simple Queue"
+title: "DS - Simple Queue"
 date: 2024-08-26
 draft:  false
 featured: false  
@@ -10,7 +10,6 @@ shareImage: "/posts/data_structures/images/simpleq.png"
 author: "Angel Vyas"
 tags:
     - Data Structure
-    - Simple Queue
 categories:     
     - Data Structure
 ---

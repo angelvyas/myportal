@@ -1,5 +1,5 @@
 ---
-title: "Arrays in C"
+title: "Arrays in C Language"
 date: 2024-08-24
 draft:  false
 featured: false  
@@ -10,9 +10,6 @@ shareImage: "/posts/c/images/array.png"
 author: "Angel Vyas"
 tags:
     - C Language
-    - Arrays
-    - Examples
-    
 categories:     
     - C Language
 ---

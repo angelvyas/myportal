@@ -1,5 +1,5 @@
 ---
-title: 'Matrices in C'
+title: 'Matrices in C-language'
 date: 2024-08-24
 draft:  false
 featured: false  
@@ -10,9 +10,6 @@ shareImage: "/posts/c/images/matrix.png"
 author: "Angel Vyas"
 tags:
     - C Language
-    - Matrices 
-    
-
 categories:     
     - C Language
 ---
