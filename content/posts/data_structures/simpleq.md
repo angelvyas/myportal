@@ -3,18 +3,16 @@ title: "Simple Queue"
 date: 2024-08-26
 draft:  false
 featured: false  
-description: "Simple Queue - Data Structures"
+description: "Simple Queue - Data Structure"
 thumbnail: "/posts/data_structures/images/simpleq.png"
 featureImage: "/posts/data_structures/images/simpleq.png" 
 shareImage: "/posts/data_structures/images/simpleq.png"
 author: "Angel Vyas"
 tags:
-    - Data Structures
+    - Data Structure
     - Simple Queue
-    
-    
 categories:     
-    - Data Structures
+    - Data Structure
 ---
 
 ```c

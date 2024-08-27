@@ -15,6 +15,10 @@
   parent = "Categories"
   name = "C Language"
   url = "/categories/c-language"
+[[main]]
+  parent = "Categories"
+  name = "Data Structure"
+  url = "/categories/data-structure"
   
 [[main]]
   name = "Gallery"
