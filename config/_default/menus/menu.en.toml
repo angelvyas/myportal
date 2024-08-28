@@ -21,11 +21,6 @@
   url = "/categories/data-structure"
   
 [[main]]
-  name = "Gallery"
-  url = "/gallery/"
-  weight = -107
-
-[[main]]
   name = "About"
   url = "about/"
   weight = -106
@@ -57,9 +52,6 @@
 [[social]]
   name = "instagram"
   url = "https://www.instagram.com/angelvyaas/"
-
-
-
 
 
 # name = "stackoverflow"
