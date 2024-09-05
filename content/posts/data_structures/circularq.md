@@ -10,16 +10,14 @@ shareImage: "/posts/data_structures/images/cirq.jpg"
 author: "Angel Vyas"
 tags:
     - Data Structures
-    - Circular Queue
-    
-    
+    - Circular Queue        
 categories:     
     - Data Structures
 ---
 
 
 
-A circular queue is a data structure that operates on a First-In, First-Out (FIFO) basis but with a circular arrangement. Unlike a linear queue, where elements are added at the rear and removed from the front, a circular queue connects the last position back to the first, forming a circle. This allows for efficient use of space by reusing empty positions once elements are dequeued.
+A circular queue is a data structure that operates on a `First-In, First-Out (FIFO)` basis but with a circular arrangement. Unlike a linear queue, where elements are added at the rear and removed from the front, a circular queue connects the last position back to the first, forming a circle. This allows for efficient use of space by reusing empty positions once elements are dequeued.
 
 ### Key Points:
 - `Fixed Size`: The queue has a predefined capacity.

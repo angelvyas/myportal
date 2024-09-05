@@ -9,9 +9,9 @@ featureImage: "/posts/data_structures/images/simpleq.png"
 shareImage: "/posts/data_structures/images/simpleq.png"
 author: "Angel Vyas"
 tags:
-    - Data Structure
+    - Data Structures
 categories:     
-    - Data Structure
+    - Data Structures
 ---
 
 ```c
