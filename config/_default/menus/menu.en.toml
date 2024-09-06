@@ -18,7 +18,7 @@
 [[main]]
   parent = "Categories"
   name = "Data Structure"
-  url = "/categories/data-structure"
+  url = "/categories/data-structures"
   
 [[main]]
   name = "About"

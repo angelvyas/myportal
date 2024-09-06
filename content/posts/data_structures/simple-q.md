@@ -10,9 +10,35 @@ shareImage: "/posts/data_structures/images/simpleq.png"
 author: "Angel Vyas"
 tags:
     - Data Structures
+    - Simple Queue
 categories:     
     - Data Structures
 ---
+
+
+
+A `simple queue` is a fundamental data structure that follows the First-In, First-Out `(FIFO)` principle. This means that the first element added to the queue will be the first one to be removed, just like people standing in line—whoever gets in first is served first.
+
+### Key Operations in a Simple Queue:
+- `Enqueue (Insertion)`: Adding an element to the back of the queue.
+- `Dequeue (Removal)`: Removing an element from the front of the queue.
+- `Peek (Front)`: Viewing the element at the front of the queue without removing it.
+- `isEmpty`: Checking if the queue is empty.
+
+**Example:**
+Think of a line at a movie theater. The first person in line buys the ticket first, and as more people arrive, they join at the back of the line. When a person buys a ticket and leaves, the next person in line gets their turn.
+
+### Visual Example:
+>Initial queue: [1, 2, 3] (1 is at the front, 3 is at the back)</br>
+>Enqueue(4): [1, 2, 3, 4]</br>
+>Dequeue(): [2, 3, 4] (1 is removed)</br>
+### Applications:
+- `Task scheduling` (e.g., in operating systems)</br>
+- `Breadth-First Search (BFS)` in graph traversal</br>
+- `Managing resources` in simulations</br>
+
+It’s a simple, efficient way to handle processes where order matters!
+### Program:
 
 ```c
 #include <stdio.h>
