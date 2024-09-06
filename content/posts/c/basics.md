@@ -4,9 +4,9 @@ date: 2024-08-24
 draft:  false
 featured: false  
 description: "Basics of C-language"
-thumbnail: "/posts/c/images/cc.png"
-featureImage: "/posts/c/images/cc.png" 
-shareImage: "/posts/c/images/cc.png"
+thumbnail: "/posts/c/images/c-language.png"
+featureImage: "/posts/c/images/c-language.png" 
+shareImage: "/posts/c/images/c-language.png"
 author: "Angel Vyas"
 tags:
     - C Language

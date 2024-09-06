@@ -17,7 +17,7 @@
   url = "/categories/c-language"
 [[main]]
   parent = "Categories"
-  name = "Data Structure"
+  name = "Data Structures"
   url = "/categories/data-structures"
   
 [[main]]
