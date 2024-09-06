@@ -4,9 +4,9 @@ date: 2024-08-24
 draft:  false
 featured: false  
 description: "Pointers in C-languge"
-thumbnail: "/posts/c/images/2.png"
-featureImage: "/posts/c/images/2.png" 
-shareImage: "/posts/c/images/2.png"
+thumbnail: "/posts/c/images/pointers.png"
+featureImage: "/posts/c/images/pointers.png" 
+shareImage: "/posts/c/images/pointers.png"
 author: "Angel Vyas"
 tags:
     - C Language
