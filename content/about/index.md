@@ -5,4 +5,4 @@ date: 2022-01-05
 
 ![:left::about_profile](/images/690.jpg)
 
-Hello! My name is Angel Vyas, and I am currently pursuing a B.Tech degree with a focus on Data Science and Artificial Intelligence. I have a passion for programming, especially in Python, which I thoroughly enjoy exploring. Whenever I have free time, I love trekking in the mountains, which brings me closer to nature and provides a sense of adventure. Additionally, I enjoy playing the guitar and flute, which are great outlets for my creativity and relaxation.
+Hi, I'm Angel Vyas, currently pursuing a B.Tech degree in Data Science. I have a passion for programming, which I thoroughly enjoy exploring. I enjoy traveling and making new friends. I also have a strong interest in music, and I like to play the flute and guitar, which are excellent ways for me to unwind and express my creativity.
