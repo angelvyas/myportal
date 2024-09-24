@@ -107,18 +107,138 @@ void traverse()
     }
 }
 
+void main(){
+
+
+
+    while(1)
+{
+	int ch;
+
+	printf("\nMENU\n");
+	printf("1.insert\n");
+	printf("2.delete\n");
+	printf("3.traverse\n");
+	printf("4.exit\n");
+	printf("Enter choice:\n");
+	scanf("%d", &ch);
+
+switch(ch)
+{
+
+	case 1:
+    int d;
+    printf("enter the data value to be inserted");
+    scanf("%d",&d);
+    insert(d);
+		break;
+	case 2:
+    int a;
+    printf("enter the data value to be deleted");
+    scanf("%d",&a);
+    delete(a);
+		break;
+
+	case 3:traverse();
+		break;
+	case 4:exit(0);
+
+	default: printf("Invalid\n");
+}
+}
+}
+```
+</br>
+</br>
+</br>
+
+### Queue Using Linked List:
+```c 
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+	struct node *next;
+	int data;
+};
+
+struct node *f,*r;
+
+void enqueue()
+{
+	int a;
+	printf("\nEnter the data value\n");
+	scanf("%d",&a);
+
+	struct node *nn=(struct node *)malloc(sizeof(struct node));
+	nn->data=a;
+	nn->next=NULL;
+
+	if(r==NULL)
+	{
+		f=nn;
+		r=nn;
+	}
+
+	else {
+
+		r->next=nn;
+		r=nn;
+
+	     }
+}
+
+void display()
+{
+	struct node *temp;
+	temp=f;
+	printf("\nThe Queue list is as:");
+
+	while(temp->next!=NULL)
+	{
+		printf("\n%d",temp->data);
+		temp=temp->next;
+	}
+
+	printf("\n%d",temp->data);
+}
+
+void dequeue()
+{
+	if(f!=NULL)
+	f=f->next;
+}
+
 void main()
 {
-    insert(10);
-    printf("\ninserted successfully");
-    insert(20);
-    printf("\ninserted successfully");
-    insert(30);
-    printf("\ninserted successfully\n");
-    traverse();
-    delete (20);
-    printf("\ndeleted successfully\n");
-    traverse();
+
+while(1)
+{
+	int ch;
+
+	printf("\nMENU\n");
+	printf("1.enqueue\n");
+	printf("2.display\n");
+	printf("3.dequeue\n");
+	printf("4.exit\n");
+	printf("Enter choice:\n");
+	scanf("%d", &ch);
+
+switch(ch)
+{
+
+	case 1:enqueue();
+		break;
+	case 2:display();
+		break;
+	case 3:dequeue();
+		break;
+	case 4:exit(0);
+
+	default: printf("Invalid\n");
+}
+}
 }
 ```
 </br>
@@ -127,6 +247,7 @@ void main()
 
 
 ### Doubly Linked List:
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
