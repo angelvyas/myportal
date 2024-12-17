@@ -794,11 +794,10 @@ lights: red, yellow, or green with radio buttons. On selecting a button, an appr
 message shown.*/
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 class TrafficLight1 extends JFrame implements ActionListener
 {
-String msg=&quot; &quot; ;
+String msg=" " ;
 private JLabel label;
 private JTextField display;
 private JRadioButton r1,r2,r3;
@@ -808,11 +807,11 @@ public TrafficLight1()
 {
 setLayout(new FlowLayout());
 c=getContentPane();
-label=new JLabel(&quot; Traffic Light&quot;);
+label=new JLabel(" Traffic Light");
 display =new JTextField(10);
-r1=new JRadioButton(&quot;RED&quot;);
-r2=new JRadioButton(&quot;GREEN&quot;);
-r3=new JRadioButton(&quot;YELLOW&quot;);
+r1=new JRadioButton("RED");
+r2=new JRadioButton("GREEN");
+r3=new JRadioButton("YELLOW");
 bg=new ButtonGroup();
 c.add(label);
 c.add(r1);
@@ -820,7 +819,6 @@ c.add(r2);
 c.add(r3);
 c.add(display);
 bg.add(r1);
-
 bg.add(r2);
 bg.add(r3);
 r1.addActionListener(this);
@@ -833,21 +831,20 @@ c.setBackground(Color.pink);
 public void actionPerformed(ActionEvent ie)
 {
 msg=ie.getActionCommand();
-if (msg.equals(&quot;RED&quot;))
+if (msg.equals("RED"))
 {
 c.setBackground(Color.RED);
-display.setText(msg+ &quot; :TURN ON&quot;);
+display.setText(msg+ " :TURN ON");
 }
-else if (msg.equals(&quot;GREEN&quot;))
+else if (msg.equals("GREEN"))
 {
 c.setBackground(Color.GREEN);
-display.setText(msg+ &quot; :TURN ON&quot;);
+display.setText(msg+ " :TURN ON");
 }
-else if (msg.equals(&quot;YELLOW&quot;))
+else if (msg.equals("YELLOW"))
 {
 c.setBackground(Color.YELLOW);
-
-display.setText(msg+ &quot; :TURN ON&quot;);
+display.setText(msg+ " :TURN ON");
 }
 }
 public static void main(String args[])
@@ -856,6 +853,7 @@ TrafficLight1 light=new TrafficLight1();
 light.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 }
 }
+
 ```
 
 ### Table
@@ -869,32 +867,31 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
-class A extends JFrame
+class A extends JFrame 
 {
-public A()
+public A() 
 {
 setSize(400,400);
 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 GridLayout g=new GridLayout(0,3);
-
 setLayout(g);
-try
+try 
 {
-FileInputStream fin = new FileInputStream(&quot;D:/java/emp.txt&quot;);
-Scanner sc = new Scanner(fin).useDelimiter(&quot;,&quot;);
+FileInputStream fin = new FileInputStream("D:/java/emp.txt");
+Scanner sc = new Scanner(fin).useDelimiter(",");
 String[] arrayList;
 String a;
-while (sc.hasNextLine())
+while (sc.hasNextLine()) 
 {
 a=sc.nextLine();
-arrayList=a.split(&quot;,&quot;);
-for (String i:arrayList)
+arrayList=a.split(",");
+for (String i:arrayList) 
 {
 add(new JLabel(i));
 }
 }
-}
-catch (Exception ex)
+} 
+catch (Exception ex) 
 {
 }
 setDefaultLookAndFeelDecorated(true);
@@ -902,14 +899,15 @@ pack();
 setVisible(true);
 }
 }
-
-public class Tb2
+public class Tb2 
 {
-public static void main(String[] args)
+public static void main(String[] args) 
 {
 A a = new A();
 }
 }
+
+
 ```
 
 ### PC Fixed
@@ -917,145 +915,140 @@ A a = new A();
 ```java
 /*2. Correct implementation of Producer-Consumer*/
 class Q {
-    int n;
-    boolean available = false;
-    synchronized int get() {
-    while(available==false)
-    try {
-    wait();
-    
-    } catch(InterruptedException e) {
-    System.out.println(&quot;InterruptedException caught&quot;);
-    }
-    System.out.println(&quot;Got: &quot; + n);
-    available = false;
-    notify();
-    return n;
-    }
-    synchronized void put(int n) {
-    while(available==true)
-    try {
-    wait();
-    } catch(InterruptedException e) {
-    System.out.println(&quot;InterruptedException caught&quot;);
-    }
-    this.n = n;
-    available = true;
-    System.out.println(&quot;Put: &quot; + n);
-    notify();
-    }
-    }
-    class Producer implements Runnable {
-    Q q;
-    Producer(Q q) {
-    this.q = q;
-    
-    new Thread(this, &quot;Producer&quot;).start();
-    }
-    public void run() {
-    int i = 0;
-    while(true) {
-    q.put(i++);
-    }
-    }
-    }
-    class Consumer implements Runnable {
-    Q q;
-    Consumer(Q q) {
-    this.q = q;
-    new Thread(this, &quot;Consumer&quot;).start();
-    }
-    public void run() {
-    while(true) {
-    q.get();
-    }
-    }
-    }
-    class PCFixed1 {
-    public static void main(String args[]) {
-    Q q = new Q();
-    new Producer(q);
-    
-    new Consumer(q);
-    System.out.println(&quot;Press Control-C to stop.&quot;);
-    }
-    }
-    ```
-    ### Multithread application
-    ```java
+int n;
+boolean available = false;
+synchronized int get() {
+while(available==false)
+try {
+wait();
+} catch(InterruptedException e) {
+System.out.println("InterruptedException caught");
+}
+System.out.println("Got: " + n);
+available = false;
+notify();
+return n;
+}
+synchronized void put(int n) {
+while(available==true)
+try {
+wait();
+} catch(InterruptedException e) {
+System.out.println("InterruptedException caught");
+}
+this.n = n;
+available = true;
+System.out.println("Put: " + n);
+notify();
+}
+}
+class Producer implements Runnable {
+Q q;
+Producer(Q q) {
+this.q = q;
+new Thread(this, "Producer").start();
+}
+public void run() {
+int i = 0;
+while(true) {
+q.put(i++);
+}
+}
+}
+class Consumer implements Runnable {
+Q q;
+Consumer(Q q) {
+this.q = q;
+new Thread(this, "Consumer").start();
+}
+public void run() {
+while(true) {
+q.get();
+}
+}
+}
+class PCFixed1 {
+public static void main(String args[]) {
+Q q = new Q();
+new Producer(q);
+new Consumer(q);
+System.out.println("Press Control-C to stop.");
+}
+}
+```
+
+### multi thread application
+```java
     /*1. Write a java Program that implements a multi-thread application that has three threads. First
 thread generates random integer every 1 second and if the value is even, second thread computes the
 square of the number and prints. If the value is odd, the third thread will print the value of cube of the
 number.*/
-import java.util.Random;
+ import java.util.Random;
 class Square extends Thread
 {
 int x;
 Square(int n)
-{
-x = n;
-}
-public void run()
-{
-int sqr = x * x;
-System.out.println(&quot;Square of &quot; + x + &quot; = &quot; + sqr );
-}
+ 	{
+ 		x = n;
+ 	}
+ 	public void run()
+ 	{
+ 		int sqr = x * x;
+ System.out.println("Square of " + x + " = " + sqr );
+ 	}
 }
 class Cube extends Thread
 {
-int x;
-Cube(int n)
-{
-x = n;
-}
-public void run()
-{
-
-int cub = x * x * x;
-System.out.println(&quot;Cube of &quot; + x + &quot; = &quot; + cub );
+ 	int x;
+ 	Cube(int n)
+ 	{
+ 		x = n;
+ 	}
+ 	public void run()
+ 	{
+ 		int cub = x * x * x;
+ System.out.println("Cube of " + x + " = " + cub );
 }
 }
 class Number extends Thread
 {
 public void run()
-{
-Random random = new Random();
-for(int i =0; i&lt;10; i++)
-{
-int randomInteger = random.nextInt(100);
-System.out.println(&quot;Random Integer generated : &quot; + randomInteger);
+ 	{
+ Random random = new Random();
+ for(int i =0; i<10; i++)
+ 		{
+ int randomInteger = random.nextInt(100);
+ System.out.println("Random Integer generated : " + randomInteger);
 if(randomInteger%2==0)
 {
 Square s = new Square(randomInteger);
-s.start();
-
-}
-else
+ 			s.start();
+		}
+		else
+		{	
+			Cube c = new Cube(randomInteger);
+ 				c.start();
+ 			}
+try 
 {
-Cube c = new Cube(randomInteger);
-
-c.start();
-}
-try
-{
-
-Thread.sleep(1000);
-}
-catch (InterruptedException ex)
+ Thread.sleep(1000);
+ 			} 
+catch (InterruptedException ex) 
 {
 System.out.println(ex);
 }
+ 		}
+ 	}
 }
-}
-}
-public class MultipleThreads
+public class MultipleThreads 
 {
 public static void main(String args[])
-{
-Number n = new Number();
-n.start();
+ 	{
+ Number n = new Number();
+ 		n.start();
+ 	}
 }
-}
+
 ```
 ### Mouse Events
 ```java
@@ -1063,12 +1056,12 @@ n.start();
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
-/*&lt;applet code=&quot;MouseEvents&quot; width=100 height=100&gt;
-&lt;/applet&gt;
+/*<applet code="MouseEvents" width=100 height=100>
+</applet>
 */
-public class MouseEvents extends Applet implements
+public class MouseEvents extends Applet implements 
 MouseListener,MouseMotionListener{
-String msg=&quot; &quot;;
+String msg=" ";
 int mouseX=0,mouseY=0;
 public void init(){
 addMouseListener(this);
@@ -1077,49 +1070,49 @@ addMouseMotionListener(this);
 public void mouseClicked(MouseEvent me){
 mouseX=0;
 mouseY=10;
-msg=&quot;Mouseclicked&quot;;
+msg="Mouseclicked";
 repaint();
 }
 public void mouseEntered(MouseEvent me){
 mouseX=0;
 mouseY=10;
-msg=&quot;Mouseentered&quot;;
-
+msg="Mouseentered";
 repaint();
 }
 public void mouseExited(MouseEvent me){
 mouseX=0;
 mouseY=10;
-msg=&quot;Mouseexited&quot;;
+msg="Mouseexited";
 repaint();
 }
 public void mousePressed(MouseEvent me){
 mouseX=me.getX();
 mouseY=me.getY();
-msg=&quot;down&quot;;
+msg="down";
 repaint();
 }
 public void mouseReleased(MouseEvent me){
 mouseX=me.getX();
 mouseY=me.getY();
-msg=&quot;up&quot;;
+msg="up";
 repaint();
 }
 public void mouseDragged(MouseEvent me){
 mouseX=me.getX();
 mouseY=me.getY();
-msg=&quot;*&quot;;
-showStatus(&quot;dragging mouse at&quot;+mouseX+&quot;,&quot;+mouseY);
-
+msg="*";
+showStatus("dragging mouse at"+mouseX+","+mouseY);
 repaint();
 }
 public void mouseMoved(MouseEvent me){
-showStatus(&quot;movingmouse at&quot;+me.getX()+&quot;,&quot;+me.getY());
+showStatus("movingmouse at"+me.getX()+","+me.getY());
 }
 public void paint(Graphics g){
 g.drawString(msg,mouseX,mouseY);
 }
 }
+
+
 ```
 
 ### Keyboards Events
@@ -1128,20 +1121,20 @@ g.drawString(msg,mouseX,mouseY);
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
-/*&lt;applet code=&quot;SimpleKey&quot; width=300 height=100&gt;
-&lt;/applet&gt; */
+/*<applet code="SimpleKey" width=300 height=100>
+</applet> */
 public class SimpleKey extends Applet implements KeyListener{
-String msg=&quot; &quot;;
+String msg=" ";
 int X=10,Y=20;
 public void init(){
 addKeyListener(this);
 }
 public void keyPressed(KeyEvent ke){
-showStatus(&quot;key down&quot;);
+showStatus("key down");
 }
 public void keyReleased(KeyEvent ke){
-showStatus(&quot;Key up&quot;);
-}
+showStatus("Key up");
+} 
 public void keyTyped(KeyEvent ke){
 msg+=ke.getKeyChar();
 repaint();
@@ -1149,6 +1142,7 @@ repaint();
 public void paint(Graphics g){
 g.drawString(msg,X,Y);
 } }
+
 ```
 
 ### Integer Division
@@ -1171,53 +1165,51 @@ JTextField tf1,tf2,tf3;
 JPanel p;
 Division()
 {
-super(&quot;Exception Handler&quot;);
+super("Exception Handler");
 c=getContentPane();
 c.setBackground(Color.red);
-btn=new JButton(&quot;DIVIDE&quot;);
+btn=new JButton("DIVIDE");
 btn.addActionListener(this);
 tf1=new JTextField(30);
 tf2=new JTextField(30);
 tf3=new JTextField(30);
-lbl1=new JLabel(&quot;NUM 1&quot;);
-
-lbl2=new JLabel(&quot;NUM 2&quot;);
-lbl3=new JLabel(&quot;RESULT&quot;);
+lbl1=new JLabel("NUM 1");
+lbl2=new JLabel("NUM 2");
+lbl3=new JLabel("RESULT");
 p=new JPanel();
 p.setLayout(new GridLayout(3,2));
 p.add(lbl1); p.add(tf1);
 p.add(lbl2); p.add(tf2);
 p.add(lbl3); p.add(tf3);
-c.add(new JLabel(&quot;Division&quot;),&quot;North&quot;);
-c.add(p,&quot;Center&quot;);
-c.add(btn,&quot;South&quot;);
+c.add(new JLabel("Division"),"North");
+c.add(p,"Center");
+c.add(btn,"South");
 }
 public void actionPerformed(ActionEvent e)
 {
 if(e.getSource()==btn)
 {
-try
+try 
 {
 int a=Integer.parseInt(tf1.getText());
 int b=Integer.parseInt(tf2.getText());
 int c=a/b;
-tf3.setText(&quot;&quot;+c);
+tf3.setText(""+c);
 }
 catch(NumberFormatException ex)
 {
-tf3.setText(&quot;--&quot;);
-
-JOptionPane.showMessageDialog(this,&quot;Only Integer Division&quot;);
+tf3.setText("--");
+JOptionPane.showMessageDialog(this,"Only Integer Division");
 }
 catch(ArithmeticException ex)
 {
-tf3.setText(&quot;--&quot;);
-JOptionPane.showMessageDialog(this,&quot;Division by zero&quot;);
+tf3.setText("--");
+JOptionPane.showMessageDialog(this,"Division by zero");
 }
 catch(Exception ex)
 {
-tf3.setText(&quot;--&quot;);
-JOptionPane.showMessageDialog(this,&quot;Other Err &quot;+ex.getMessage());
+tf3.setText("--");
+JOptionPane.showMessageDialog(this,"Other Err "+ex.getMessage());
 }
 }
 }
@@ -1228,7 +1220,6 @@ b.setSize(300,300);
 b.setVisible(true);
 }
 }
-```
 
 ### Files
 ```java
@@ -1236,37 +1227,36 @@ b.setVisible(true);
 subdirectories.Note:the directory what I have taken is event handling try with your own directories*/
 import java.io.*;
 class DirList1
-
 {
 public static void main(String args[])
 {
-String dname=&quot;/event handling&quot;;
+String dname="/event handling";
 File myDir=new File(dname);
 if(myDir.isDirectory())
 {
 File arr[]=myDir.listFiles();
-RecursivePrint(arr, 0);
+RecursivePrint(arr, 0); 
 }
 }
-static void RecursivePrint(File[] arr, int level)
-{
-for (File f : arr)
-{
-// tabs for internal levels
-for (int i = 0; i &lt; level; i++)
-System.out.print(&quot;\t&quot;);
-if(f.isFile())
-System.out.println(f.getName()+&quot;is a file&quot;);
-else if(f.isDirectory())
-{
-System.out.println(f.getName()+&quot;is a directory&quot;);
-// recursion for sub-directories
-RecursivePrint(f.listFiles(), level + 1);
+static void RecursivePrint(File[] arr, int level) 
+{ 
+for (File f : arr) 
+{ 
+// tabs for internal levels 
+for (int i = 0; i < level; i++) 
+System.out.print("\t"); 
+if(f.isFile()) 
+System.out.println(f.getName()+"is a file"); 
+else if(f.isDirectory()) 
+{ 
+System.out.println(f.getName()+"is a directory"); 
+// recursion for sub-directories 
+RecursivePrint(f.listFiles(), level + 1); 
+}
+} 
+} 
+}
 
-}
-}
-}
-}
 ```
 
 ### Factorial
@@ -1276,8 +1266,8 @@ Value and returns it in another text field, when the button named “Compute” 
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
-/* &lt;applet code=&quot;Compute1&quot; width=300 height=300&gt;
-&lt;/applet&gt;
+/* <applet code="Compute1" width=300 height=300>
+</applet>
 */
 public class Compute1 extends Applet implements
 ActionListener
@@ -1287,17 +1277,16 @@ Label lb1,lb2;
 TextField tf1,tf2;
 public void init()
 {
-btn=new Button(&quot;Compute&quot;);
-cbtn=new Button(&quot;Clear&quot;);
+btn=new Button("Compute");
+cbtn=new Button("Clear");
 btn.addActionListener(this);
 cbtn.addActionListener(this);
 tf1=new TextField(30);
 tf2=new TextField(30);
-lb1=new Label(&quot;Number&quot;);
-lb2=new Label(&quot;Result&quot;);
+lb1=new Label("Number");
+lb2=new Label("Result");
 setLayout(new GridLayout(3,2));
 add(lb1);
-
 add(tf1);
 add(lb2);
 add(tf2);
@@ -1310,16 +1299,16 @@ if(ae.getSource()==btn)
 {
 int a=Integer.parseInt(tf1.getText());
 int fact=1;
-for(int i=1;i&lt;=a;i++)
+for(int i=1;i<=a;i++)
 {
 fact=fact*i;
 }
-tf2.setText(&quot;&quot;+fact);
+tf2.setText(""+fact);
 }
 else
 {
-tf1.setText(&quot;&quot;);
-tf2.setText(&quot;&quot;);
+tf1.setText("");
+tf2.setText("");
 }
 }
 }
@@ -1330,37 +1319,36 @@ tf2.setText(&quot;&quot;);
 /*7. Write a Java program that works as a simple calculator. Use a grid layout to arrange buttons for
 the digits and for the +, -,*, % operations. Add a text field to display the result. Handle any possible
 exceptions like divided by zero.*/
-/* &lt;applet code=&quot;Math1&quot; width=500 height=500&gt;
-&lt;/applet&gt;
+/* <applet code="Math1" width=500 height=500>
+</applet>
 */
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
 public class Math1 extends Applet implements ActionListener
-{ Button
+{ Button 
 b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,clear,add,minus,mul,div,clc,equal;
 TextField tf;
-String msg=&quot;&quot;,op=&quot;-&quot;;
+String msg="",op="-";
 int b,a,count;
 public void init()
 {
-b1=new Button(&quot;1&quot;);
-b2=new Button(&quot;2&quot;);
-b3=new Button(&quot;3&quot;);
-b4=new Button(&quot;4&quot;);
-b5=new Button(&quot;5&quot;);
-b6=new Button(&quot;6&quot;);
-b7=new Button(&quot;7&quot;);
-b8=new Button(&quot;8&quot;);
-
-b9=new Button(&quot;9&quot;);
-b0=new Button(&quot;0&quot;);
-clear=new Button(&quot;C&quot;);
-add=new Button(&quot;+&quot;);
-minus=new Button(&quot;-&quot;);
-mul=new Button(&quot;*&quot;);
-div=new Button(&quot;/&quot;);
-equal=new Button(&quot;=&quot;);
+b1=new Button("1");
+b2=new Button("2");
+b3=new Button("3");
+b4=new Button("4");
+b5=new Button("5");
+b6=new Button("6");
+b7=new Button("7");
+b8=new Button("8");
+b9=new Button("9");
+b0=new Button("0");
+clear=new Button("C");
+add=new Button("+");
+minus=new Button("-");
+mul=new Button("*");
+div=new Button("/");
+equal=new Button("=");
 b1.addActionListener(this);
 b2.addActionListener(this);
 b3.addActionListener(this);
@@ -1378,7 +1366,6 @@ div.addActionListener(this);
 clear.addActionListener(this);
 equal.addActionListener(this);
 tf=new TextField(30);
-
 setLayout(new GridLayout(5,5));
 add(tf);
 add(clear);
@@ -1400,117 +1387,112 @@ add(mul);
 }
 public void actionPerformed(ActionEvent ae)
 { switch(ae.getActionCommand())
-{ case &quot;1&quot;: msg=msg+&quot;1&quot;;
+{ case "1": msg=msg+"1";
 tf.setText(msg);
 break;
-case &quot;2&quot;: msg=msg+&quot;2&quot;;
-
+case "2": msg=msg+"2";
 tf.setText(msg);
 break;
-case &quot;3&quot;: msg=msg+&quot;3&quot;;
+case "3": msg=msg+"3";
 tf.setText(msg);
 break;
-case &quot;4&quot;: msg=msg+&quot;4&quot;;
+case "4": msg=msg+"4";
 tf.setText(msg);
 break;
-case &quot;5&quot;: msg=msg+&quot;5&quot;;
+case "5": msg=msg+"5";
 tf.setText(msg);
 break;
-case &quot;6&quot;: msg=msg+&quot;6&quot;;
+case "6": msg=msg+"6";
 tf.setText(msg);
 break;
-case &quot;7&quot;: msg=msg+&quot;7&quot;;
+case "7": msg=msg+"7";
 tf.setText(msg);
 break;
-case &quot;8&quot;: msg=msg+&quot;8&quot;;
+case "8": msg=msg+"8";
 tf.setText(msg);
 break;
-case &quot;9&quot;: msg=msg+&quot;9&quot;;
+case "9": msg=msg+"9";
 tf.setText(msg);
 break;
-case &quot;0&quot;: msg=msg+&quot;0&quot;;
+case "0": msg=msg+"0";
 tf.setText(msg);
-
 break;
-case &quot;+&quot;: if(count==0)
+case "+": if(count==0)
 { b=Integer.parseInt(tf.getText());
-op=&quot;+&quot;;
-tf.setText(&quot;&quot;);
-msg=&quot;&quot;;
+op="+";
+tf.setText("");
+msg="";
 count++;
 }
 else
 { a=Integer.parseInt(tf.getText());
 Math2(b,a,op);
-op=&quot;+&quot;;
-tf.setText(&quot;&quot;);
-msg=&quot;&quot;;
+op="+";
+tf.setText("");
+msg="";
 }
 break;
-case &quot;-&quot;: if(count==0)
+case "-": if(count==0)
 {
 b=Integer.parseInt(tf.getText());
-op=&quot;-&quot;;
-tf.setText(&quot;&quot;);
-msg=&quot;&quot;;
-count++;
-}
-else
-
-{
-a=Integer.parseInt(tf.getText());
-Math2(b,a,op);
-op=&quot;-&quot;;
-tf.setText(&quot;&quot;);
-msg=&quot;&quot;;
-}
-break;
-case &quot;*&quot;: if(count==0)
-{
-b=Integer.parseInt(tf.getText());
-op=&quot;*&quot;;
-tf.setText(&quot;&quot;);
-msg=&quot;&quot;;
+op="-";
+tf.setText("");
+msg="";
 count++;
 }
 else
 {
 a=Integer.parseInt(tf.getText());
 Math2(b,a,op);
-op=&quot;*&quot;;
-tf.setText(&quot;&quot;);
-msg=&quot;&quot;;
+op="-";
+tf.setText("");
+msg="";
 }
 break;
-
-case &quot;/&quot;: if(count==0)
+case "*": if(count==0)
 {
 b=Integer.parseInt(tf.getText());
-op=&quot;/&quot;;
-tf.setText(&quot;&quot;);
-msg=&quot;&quot;;
+op="*";
+tf.setText("");
+msg="";
 count++;
 }
 else
 {
 a=Integer.parseInt(tf.getText());
 Math2(b,a,op);
-op=&quot;/&quot;;
-tf.setText(&quot;&quot;);
+op="*";
+tf.setText("");
+msg="";
 }
-msg=&quot;&quot;;
 break;
-case &quot;C&quot;: tf.setText(&quot;&quot;);
+case "/": if(count==0)
+{
+b=Integer.parseInt(tf.getText());
+op="/";
+tf.setText("");
+msg="";
+count++;
+}
+else
+{
+a=Integer.parseInt(tf.getText());
+Math2(b,a,op);
+op="/";
+tf.setText("");
+}
+msg="";
+break;
+case "C": tf.setText("");
 b=0;
-msg=&quot;&quot;;
+msg="";
 count=0;
 break;
-case &quot;=&quot;: a=Integer.parseInt(tf.getText());
+case "=": a=Integer.parseInt(tf.getText());
 Math2(b,a,op);
-tf.setText(&quot;&quot;+b);
-
+tf.setText(""+b);
 count=0;
-msg=&quot;&quot;;
+msg="";
 break;
 }
 }
@@ -1518,17 +1500,19 @@ public void Math2(int b1,int a1,String op1)
 {
 switch(op1)
 {
-case &quot;+&quot;: b=b1+a1;
+case "+": b=b1+a1;
 break;
-case &quot;-&quot;: b=b1-a1;
+case "-": b=b1-a1;
 break;
-case &quot;*&quot;: b=b1*a1;
+case "*": b=b1*a1;
 break;
-case &quot;/&quot;: b=b1/a1;
+case "/": b=b1/a1;
 break;
 }
 }
 }
+
+
 ```
 
 ### Double Linked List
@@ -1552,7 +1536,6 @@ node newNode= new node(data);
 if(head==null)
 {
 head=tail=newNode;
-
 head.prev=null;
 tail.next=null;
 }
@@ -1569,16 +1552,15 @@ public void displayF()
 node current=head;
 if(head==null)
 {
-System.out.println(&quot;List is empty&quot;);
+System.out.println("List is empty");
 return;
 }
-System.out.println(&quot;nodes of ddl FORWARD:&quot;);
+System.out.println("nodes of ddl FORWARD:");
 while(current!=null)
 {
-System.out.print(current.data+&quot; &quot;);
+System.out.print(current.data+" ");
 current=current.next;
 }
-
 System.out.println();
 }
 public void displayB()
@@ -1586,31 +1568,30 @@ public void displayB()
 node current=tail;
 if(tail==null)
 {
-System.out.println(&quot;List is empty&quot;);
+System.out.println("List is empty");
 return;
 }
-System.out.println(&quot;nodes of ddl BACKWARD:&quot;);
+System.out.println("nodes of ddl BACKWARD:");
 while(current!=null)
 {
-System.out.print(current.data+&quot; &quot;);
+System.out.print(current.data+" ");
 current=current.prev;
 }
 System.out.println();
 }
 public void deletenode(int key)
-{
-node temp = head, prev = null;
-if (temp != null &amp;&amp; temp.data == key)
+{ 
+node temp = head, prev = null; 
+if (temp != null && temp.data == key)
 {
 head = temp.next;
 return;
-
-}
-while (temp != null &amp;&amp; temp.data != key)
+} 
+while (temp != null && temp.data != key)
 {
 prev = temp;
 temp = temp.next;
-}
+} 
 if (temp == null)
 return;
 prev.next = temp.next;
@@ -1626,7 +1607,7 @@ d.addNode(5);
 d.displayF();
 d.displayB();
 d.deletenode(2);
-System.out.println(&quot;after deletion&quot;);
+System.out.println("after deletion");
 d.displayF();
 }
 }
