@@ -1,9 +1,9 @@
 ---
-title: "EXTERNAL DS - SEM 3"
+title: "SAMPLE CODES"
 date: 2024-12-16
 draft:  false
 featured: false  
-description: "EXTERNAL DS - SEM 3"
+description: "SAMPLE CODES"
 thumbnail: "/posts/data_structures/images/z"
 featureImage: "/posts/data_structures/images/" 
 shareImage: "/posts/data_structures/images/"
