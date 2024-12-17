@@ -270,66 +270,47 @@ outer.test();
 
 }
 ```
-### Multiple Inheritance
+### MultiLevel Inheritance
 ```java
-class Student
+class A
 {
-int rollnumber;
-void getnumber(int n)
-{
-rollnumber=n;
+    int a;
+    void showA()
+    {
+        System.out.println("a:"+a);
+    }
 }
-void putnumber()
+class B extends A
 {
-System.out.println("roll no="+rollnumber);
+    int b;
+    void showB()
+    {
+        System.out.println("b:"+b);
+    }
 }
-}
-class Test extends Student
+class C extends B
 {
-float part1,part2;
-void getmarks(float m1,float m2)
-{
-part1=m1;
-part2=m2;
+    int c;
+    void showC()
+    {
+        System.out.println("c:"+c);
+    }
 }
-void putmarks()
-
+class MultiLvlInheritance
 {
-System.out.println("marks obtained:");
-System.out.println("part1="+part1+" part2="+part2);
-}
-}
-interface Sports
-{
-float sportwt=6.0f;
-void putwt();
-}
-class Result extends Test implements Sports
-{
-float total;
-public void putwt()
-{
-System.out.println("sports wt="+sportwt);
-}
-void display()
-{
-total=part1+part2+sportwt;
-putnumber();
-putmarks();
-putwt();
-System.out.println("total score="+total);
-
-}
-}
-class MultipleInh
-{
-public static void main(String[] args)
-{
-Result student1=new Result();
-student1.getnumber(1234);
-student1.getmarks(27.5f,33.2f);
-student1.display();
-}
+    public static void main(String args[])
+    {
+        A ob = new A();
+        ob.a = 10;
+        ob.showA();
+        C ob1 = new C();
+        ob1.a= 12;
+        ob1.b = 15;
+        ob1.c = 18;
+        ob1.showA();
+        ob1.showB();
+        ob1.showC();
+    }
 }
 ```
 
@@ -373,6 +354,176 @@ subob.show();
 }
 }
 ```
+### Overload
+```java
+class OverLoad
+{
+void test()
+    {System.out.println("No parameters");
+    }
+void test(int a)
+{
+    System.out.println("a="+a);
+}
+void test(int a , int b)
+{
+    System.out.println("a and b:"+a+" & "+b);
+}
+double test(double a)
+{
+    System.out.println("double a :"+a);
+    return a*a;
+}
+}
+class OverLoadDemo
+{
+    public static void main(String args[])
+    {
+        OverLoad ob = new OverLoad();
+        double result;
+        ob.test();
+        ob.test(10);
+        ob.test(10,20);
+        result= ob.test(123.4);
+        System.out.println("Result of ob.test(123.4:)"+result);
+    }
+}
+```
+### Call By Reference
+```java
+class Test
+{
+    int a,b;
+    Test(int i, int j)
+    {
+        a=i;
+        b=j;
+    }
+    void meth(Test o)
+    {o.a*=2;
+     o.b/=2;
+    }
+}
+class CallByRef
+{
+        public static void main(String args[])
+        {
+            Test ob = new Test(15,20);
+            System.out.println("ob.a and ob.b before call:"+ob.a+" "+ob.b);
+            ob.meth(ob);
+            System.out.println("ob.a and ob.b after call:"+ob.a+" "+ob.b);
+        }
+
+}
+```
+### Return an Object
+```java
+class Test
+{
+ int a;
+ Test(int i)
+ {
+    a=i;
+ }
+ Test incrByten()
+ {
+    Test temp = new Test(a+10);
+    return temp;
+ }
+}
+class RetrOb
+{
+    public static void main(String args[])
+    {
+        Test ob1 = new Test(2);
+        Test ob2;
+        ob2 = ob1.incrByten();
+        System.out.println("ob1.a:"+ob1.a);
+        System.out.println("ob2.a:"+ob2.a);
+        ob2 = ob2.incrByten();
+        System.out.println("ob2.a after second increment:"+ob2.a);
+    }
+}
+```
+### Reccursion
+```java
+class factorial{
+    int fact(int n)
+    {
+        if(n==1)
+        return 1;
+        
+        else
+        return (fact(n-1)*n);
+    }
+    public static void main(String args[]){
+        factorial f=new factorial();
+        System.out.println("factorial of 3 is:"+f.fact(3));
+        System.out.println("factorial of 10 is:"+f.fact(10));
+    }
+}
+```
+
+### Passing object as a Parameter
+```java
+class Test {
+    int a, b;
+
+    Test(int i, int j) {
+        a = i;
+        b = j;
+
+    }
+
+    Boolean equals(Test o) {
+        if (o.a == a && o.b == b) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+class Passob {
+    public static void main(String[] args) {
+        Test ob1 = new Test(100, 22);
+        Test ob2 = new Test(100, 22);
+        Test ob3 = new Test(-1, -1);
+        System.out.println("ob1==ob2" + ob1.equals(ob2));
+        System.out.println("ob1==ob3" + ob1.equals(ob3));
+    }
+}
+```
+
+### Multiple Inheritance Using Interface
+```java
+interface I {
+    void meth();
+}
+
+class A {
+    void meth1() {
+        System.out.println("defined in class A");
+    }
+
+}
+
+class B extends A implements I {
+    public void meth() {
+        System.out.println("defined in class B");
+    }
+}
+
+class MultiInheritance {
+    public static void main(String[] args) {
+        B ob = new B();
+        ob.meth();
+        ob.meth1();
+    }
+}
+```
+
+
 ### Single Level Inheritance
 ```java
 class A
@@ -473,7 +624,7 @@ System.out.println("str1!=str3");
 }
 ```
 
-### Super Keyword
+### Super Keyword(to access super class constructor.)
 ```java
 class SuperTest
 
