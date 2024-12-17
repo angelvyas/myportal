@@ -602,25 +602,36 @@ meth(20);
 
 ### String class 
 ```java
-class StringDemo2
-{
-public static void main(String args[])
-{
-String str1="First String";
-String str2="Second String";
-String str3=str1;
-System.out.println("Length of str1:"+str1.length());
-System.out.println("Char at index 3 in str1:"+str1.charAt(3));
-if(str1.equals(str2))
-System.out.println("str1==str2");
-else
-System.out.println("str1!=str2");
-if(str1.equals(str3))
-System.out.println("str1==str3");
-else
-System.out.println("str1!=str3");
+class stringTest {
+    public static void main(String[] args) {
+        String s = "welcome to java programming";
+        System.out.println(s);
+        System.out.println("string length=" + s.length());
+        System.out.println("character at 3rd position=" + s.charAt(3));
+        System.out.println(s.substring(3));
+        System.out.println("substring=" + s.substring(2, 5));
+        String s1 = "java";
+        String s2 = "programming";
+        System.out.println("concatenated string=" + s1.concat(s2));
+        String s4 = "learn code learn";
+        System.out.println("Index of Learn" + s4.indexOf("Learn"));
+        System.out.println("Index of a=" + s4.indexOf('a', 3));
+        Boolean out = "java".equals("java");
+        System.out.println("checking equality" + out);
+        out = "Java".equalsIgnoreCase("java");
+        System.out.println("checking equality" + out);
+        int out1 = s1.compareTo(s2);
+        System.out.println("the difference between ASCII values is" + out1);
+        String word1 = "JAVA PROGRAMMING";
+        System.out.println("changing to lower case" + word1.toLowerCase());
+        String word2 = "java programming";
+        System.out.println("changing to upper case:" + word2.toUpperCase());
+        String str1 = "frogramming";
+        System.out.println("original string" + str1);
+        String str2 = "frogramming".replace('f', 'p');
+        System.out.println("replaced f with p" + str2);
 
-}
+    }
 }
 ```
 
