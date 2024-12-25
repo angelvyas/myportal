@@ -19,6 +19,10 @@
   parent = "Categories"
   name = "Data Structures"
   url = "/categories/data-structures"
+[[main]]
+  parent = "Categories"
+  name = "Java"
+  url = "/categories/java"
   
 [[main]]
   name = "About"
