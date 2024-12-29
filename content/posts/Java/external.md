@@ -1,5 +1,5 @@
 ---
-title: "JAVA CODES"
+title: "SAMPLE JAVA CODES"
 date: 2024-12-17
 draft:  false
 featured: false  
