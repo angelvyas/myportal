@@ -38,8 +38,8 @@ Think of a line at a movie theater. The first person in line buys the ticket fir
 - `Managing resources` in simulations</br>
 
 It’s a simple, efficient way to handle processes where order matters!
-### Program:
-
+### **Programs:**
+#### Implementation of Simple Queue.
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -143,4 +143,101 @@ int main()
     }
 }
 
+```
+</br>
+
+#### Queue using Linked List.
+
+```c
+#include <stdio.h>//q using linked list
+#include <stdlib.h>
+
+struct node
+{
+	struct node *next;
+	int data;
+};
+
+struct node *f, *r;
+
+void enqueue()
+{
+	int a;
+	printf("\nEnter the data value\n");
+	scanf("%d", &a);
+
+	struct node *nn = (struct node *)malloc(sizeof(struct node));
+	nn->data = a;
+	nn->next = NULL;
+
+	if (r == NULL)
+	{
+		f = nn;
+		r = nn;
+	}
+
+	else
+	{
+
+		r->next = nn;
+		r = nn;
+	}
+}
+
+void display()
+{
+	struct node *temp;
+	temp = f;
+	printf("\nThe Queue list is as:");
+
+	while (temp->next != NULL)
+	{
+		printf("\n%d", temp->data);
+		temp = temp->next;
+	}
+
+	printf("\n%d", temp->data);
+}
+
+void dequeue()
+{
+	if (f != NULL)
+		f = f->next;
+}
+
+void main()
+{
+
+	while (1)
+	{
+		int ch;
+
+		printf("\nMENU\n");
+		printf("1.enqueue\n");
+		printf("2.display\n");
+		printf("3.dequeue\n");
+		printf("4.exit\n");
+		printf("Enter choice:\n");
+		scanf("%d", &ch);
+
+		switch (ch)
+		{
+
+		case 1:
+			enqueue();
+			break;
+		case 2:
+			display();
+			break;
+		case 3:
+			dequeue();
+			break;
+		case 4:
+			exit(0);
+
+		default:
+			printf("Invalid\n");
+		}
+	}
+}
 ```

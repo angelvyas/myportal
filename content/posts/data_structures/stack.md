@@ -29,12 +29,12 @@ A stack is a fundamental data structure in computer science that operates on a L
 - `Dynamic Size`: In many implementations, a stack can grow or shrink as needed, depending on the underlying data structure (such as an array or linked list).
 
 
-### Program
+### **Programs:**
+
+#### Implementation of Stack.
 ```c
 #include <stdio.h>
-
 #include <stdlib.h>
-
 #define SIZE 4
 
 int top = -1, inp_array[SIZE];
@@ -115,5 +115,96 @@ void show()
         for (int i = top; i >= 0; --i)
             printf("%d\n", inp_array[i]);
     }
+}
+```
+
+#### Stack using Linked List:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define the structure of a node in the linked list
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to create a new node
+struct Node* newNode(int data) {
+    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+    node->data = data;
+    node->next = NULL;
+    return node;
+}
+
+// Function to check if the stack is empty
+int isEmpty(struct Node* top) {
+    return top == NULL;
+}
+
+// Function to push an element onto the stack
+void push(struct Node** top, int data) {
+    struct Node* node = newNode(data);
+    node->next = *top;
+    *top = node;
+    printf("%d pushed to stack\n", data);
+}
+
+// Function to pop an element from the stack
+int pop(struct Node** top) {
+    if (isEmpty(*top)) {
+        printf("Stack underflow\n");
+        return -1;
+    }
+struct Node* temp = *top;
+    int popped = temp->data;
+    *top = (*top)->next;
+    free(temp);
+    return popped;
+}
+
+// Function to peek the top element of the stack
+int peek(struct Node* top) {
+    if (isEmpty(top)) {
+        printf("Stack is empty\n");
+        return -1;
+    }
+    return top->data;
+}
+
+// Function to display the stack
+void display(struct Node* top) {
+    if (isEmpty(top)) {
+        printf("Stack is empty\n");
+        return;
+    }
+    struct Node* temp = top;
+    printf("Stack elements: ");
+    while (temp != NULL) {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+}
+int main() {
+    struct Node* stack = NULL;  // Initialize the stack to NULL (empty stack)
+
+    // Testing stack operations
+    push(&stack, 10);
+    push(&stack, 20);
+    push(&stack, 30);
+    display(stack);  // Expected output: 30 20 10
+
+    printf("Popped: %d\n", pop(&stack));  // Expected output: 30
+    display(stack);  // Expected output: 20 10
+
+    printf("Top element: %d\n", peek(stack));  // Expected output: 20
+
+    pop(&stack);  // Popping 20
+    pop(&stack);  // Popping 10
+    pop(&stack);  // Stack underflow
+
+    return 0;
 }
 ```

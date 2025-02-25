@@ -4,15 +4,21 @@ date: 2024-12-17
 draft:  false
 featured: false  
 description: "JAVA CODES"
-thumbnail: "C:\Users\sahu\webroot\angelvyas.com\content\posts\Java\Images\JAVA.webp"
-featureImage: "C:\Users\sahu\webroot\angelvyas.com\content\posts\Java\Images\JAVA.webp" 
-shareImage: "C:\Users\sahu\webroot\angelvyas.com\content\posts\Java\Images\JAVA.webp"
+thumbnail: "/posts/Java/Images/JAVA.jpg"
+featureImage: "/posts/Java/Images/JAVA.jpg" 
+shareImage: "/posts/Java/Images/JAVA.jpg"
 author: "Angel Vyas"
 tags:
     - Java
 categories:     
     - Java
 ---
+
+</br>
+</br>
+
+<h2> Here, you can find some basic Java example codes to help you get started. These examples cover a variety of fundamental concepts and are great for beginners looking to practice and learn.</h2>
+
 
 ### 1-D
 ```java
