@@ -1,12 +1,12 @@
 ---
-title: "SAMPLE JAVA CODES"
+title: "JAVA EXAMPLE CODES"
 date: 2024-12-17
 draft:  false
 featured: false  
 description: "JAVA CODES"
-thumbnail: ""
-featureImage: "" 
-shareImage: ""
+thumbnail: "C:\Users\sahu\webroot\angelvyas.com\content\posts\Java\Images\JAVA.webp"
+featureImage: "C:\Users\sahu\webroot\angelvyas.com\content\posts\Java\Images\JAVA.webp" 
+shareImage: "C:\Users\sahu\webroot\angelvyas.com\content\posts\Java\Images\JAVA.webp"
 author: "Angel Vyas"
 tags:
     - Java
