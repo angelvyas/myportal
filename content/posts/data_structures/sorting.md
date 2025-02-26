@@ -4,9 +4,9 @@ date: 2025-02-25
 draft:  false
 featured: false  
 description: "DS - Sorting Techniques"
-thumbnail: "/posts/data_structures/images/sort.png"
-featureImage: "/posts/data_structures/images/sort.png" 
-shareImage: "/posts/data_structures/images/sort.png"
+thumbnail: "/posts/data_structures/images/sorting.png"
+featureImage: "/posts/data_structures/images/sorting.png" 
+shareImage: "/posts/data_structures/images/sorting.png"
 author: "Angel Vyas"
 tags:
     - Data Structures

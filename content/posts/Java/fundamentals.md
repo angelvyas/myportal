@@ -1,12 +1,12 @@
 ---
-title: "Fundamentals of Java"
+title: "JAVA - Super and This Keyword"
 date: 2024-11-17
 draft:  false
 featured: false  
 description: "Fundamentals of Java"
-thumbnail: ""
-featureImage: "" 
-shareImage: ""
+thumbnail: "/posts/Java/Images/JAVA.png"
+featureImage: "/posts/Java/Images/JAVA.png" 
+shareImage: "/posts/Java/Images/JAVA.png"
 author: "Angel Vyas"
 tags:
     - Java

@@ -1,15 +1,19 @@
 ---
 title: "Who am I??"
-date: 2024-09-21
+date: 2025-02-26
 draft:  false   
 featured: false  
 description: "About Me"
+thumbnail: "/posts/general/images/mee.png"
+featureImage: "/posts/general/images/mee.png" 
+shareImage: "/posts/general/images/mee.png"
 author: "Angel Vyas"
 tags:
     - Info
 categories:     
     - General
 ---
+
 
 Hi Everyone !!! 
 

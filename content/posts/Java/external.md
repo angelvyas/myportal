@@ -4,9 +4,9 @@ date: 2024-12-17
 draft:  false
 featured: false  
 description: "JAVA CODES"
-thumbnail: "/posts/Java/Images/JAVA.jpg"
-featureImage: "/posts/Java/Images/JAVA.jpg" 
-shareImage: "/posts/Java/Images/JAVA.jpg"
+thumbnail: "/posts/Java/Images/JAVA.png"
+featureImage: "/posts/Java/Images/JAVA.png" 
+shareImage: "/posts/Java/Images/JAVA.png"
 author: "Angel Vyas"
 tags:
     - Java
@@ -14,10 +14,10 @@ categories:
     - Java
 ---
 
-</br>
+</br>   
 </br>
 
-<h2> Here, you can find some basic Java example codes to help you get started. These examples cover a variety of fundamental concepts and are great for beginners looking to practice and learn.</h2>
+#### Here, you can find some basic Java example codes to help you get started. These examples cover a variety of fundamental concepts and are great for beginners looking to practice and learn.</h3>
 
 
 ### 1-D
