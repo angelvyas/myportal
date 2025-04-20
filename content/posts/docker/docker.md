@@ -52,3 +52,27 @@ Example: An image might be based on Ubuntu, with Python and your app code instal
 🧪 *Analogy*:
 - Image = recipe
 - Container = actual dish cooked from that recipe
+
+ ### **Important Docker Commands**
+
+ 🚀 **Docker Basics**
+
+ | Command | Description |
+ | :----| :---- |
+ |docker --version or docker -v |Show installed Docker version|
+ |docker info | Display system-wide info about Docker|
+ |docker help or docker or docker --help|Show help for Docker commands|
+
+ 📦 **Image Commands**
+  | Command | Description |
+ | :----| :---- |
+|docker pull <image>|	Download an image from Docker Hub|
+|docker build -t <name> .|	Build an image from a Dockerfile in current dir|
+|docker imagses|	List all local images|
+|docker rmi <image>|	Remove an image|
+|docker tag <image> < repo:tag>|	Tag an image for a repo|
+|docker push < repo:tag>|	Push image to Docker Hub or registry|  
+  
+
+
+
