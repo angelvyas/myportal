@@ -1,6 +1,6 @@
 ---
 title: "DOCKER"
-date: 2025-04-19
+date: 2025-05-6
 draft:  false
 featured: false  
 description: "DOCKER - Basics"
@@ -12,6 +12,7 @@ tags:
     - Docker
           
 categories:     
+    - DevOps
     - Docker
 ---
 

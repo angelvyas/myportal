@@ -1,7 +1,7 @@
 ---
 title: 'GIT - Global Information Tracker'
 date: 2024-24-05
-draft:  true   
+draft:  false
 featured: false  
 description: "GIT - Global Information Tracker"
 thumbnail: "/posts/git/images/git.png"
@@ -11,7 +11,8 @@ author: "Angel Vyas"
 tags:
     - Git
 categories:     
-    - General
+    - DevOps
+    - Git
 ---
 
 Git is a distributed version control system that tracks versions of files.
