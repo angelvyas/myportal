@@ -1,6 +1,6 @@
 ---
 title: "DOCKER"
-date: 2025-05-6
+date: 2025-05-06
 draft:  false
 featured: false  
 description: "DOCKER - Basics"
