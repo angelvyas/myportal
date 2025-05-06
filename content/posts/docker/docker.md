@@ -37,7 +37,7 @@ Docker is widely used in DevOps, cloud computing, microservices, and CI/CD pipel
 
 
 </br>
-s
+
 🚀 **Docker Basics**
 
  | Command | Description |
@@ -208,3 +208,115 @@ Just like real computers, containers need IP addresses, ports, and rules to talk
 |docker network rm <network_name>|	Remove a network|
 |docker network connect <network_name> <container_name>	|Add container to a network|
 |docker network disconnect <netwok_name> <container_name>|	Remove container from network|
+
+### **Docker Compose**
+Docker Compose is a tool that lets you define and run `multi-container` Docker applications easily using a simple `YAML configuration` file.
+
+📦 **What It Does**:
+Instead of starting each container one by one with docker run, Docker Compose lets you:
+- Define all your services (e.g., app, database, cache, image, ports, etc) in one file.
+- Start everything with a single command:
+
+```bash
+docker-compose up
+```
+
+🛠️ Example:
+Let’s say you have mongo container and a mongo-express container. Here's what a docker-compose.yml file might look like:
+```bash
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    networks:
+      - mongo-network
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=angel
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    networks:
+      - mongo-network
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=angel
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=123456
+      - ME_CONFIG_MONGODB_URL=mongodb://admin:qwerty@mongo:27017/?authSource=admin
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=qwerty
+    ports:
+      - "8081:8081"
+
+networks:
+  mongo-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+  ```
+✅ Key Benefits:
+- Simplifies multi-container setups
+- Easy to share and reuse using the docker-compose.yml file
+- Supports networking, volumes, and environment configs
+- Great for local development and testing
+
+**COMMANDS**
+
+| **Command**                            | **Description**                                                      |
+| -------------------------------------- | -------------------------------------------------------------------- |
+| `docker-compose up`                    | Builds (if needed) and starts all services defined in the YAML file. |
+| `docker-compose up -d`                 | Starts all services in **detached** (background) mode.               |
+| `docker-compose down`                  | Stops and removes all running containers, networks, and volumes.     |
+| `docker-compose build`                 | Builds images for all services without starting the containers.      |
+| `docker-compose up --build`            | Forces rebuild of images, then starts services.                      |
+| `docker-compose restart`               | Restarts all the running containers.                                 |
+| `docker-compose logs`                  | Shows logs from all containers.                                      |
+| `docker-compose logs [service]`        | Shows logs for a specific service (e.g., `logs web`).                |
+| `docker-compose ps`                    | Lists the status of all containers defined in the YAML file.         |
+| `docker-compose down --volumes`        | Removes containers **and volumes**.                                  |
+| `docker-compose down --remove-orphans` | Removes orphaned containers not defined in the YAML file.            |
+
+
+### **Docker Volumes**
+A Docker volume is a special storage mechanism that lets containers store data persistently, even after the container is deleted or restarted.
+
+🧠 **Why Use Volumes?**
+-`Persistence`: Data is not lost when a container stops or is removed.
+-`Sharing`: Multiple containers can access the same volume.
+-`Separation`: Keeps application data separate from container logic.
+-`Backups`: Volumes can be easily backed up and restored.
+
+🛠️ **Common Volume Commands**
+| Command                       | Description                        |
+| ----------------------------- | ---------------------------------- |
+| `docker volume create myvol`  | Creates a new volume named `myvol` |
+| `docker volume ls`            | Lists all volumes                  |
+| `docker volume inspect myvol` | Shows details about a volume       |
+| `docker volume rm myvol`      | Deletes a volume                   |
+| `docker volume prune`         | Deletes all unused volumes         |
+
+📦 **Using Volumes in docker run**
+```bash
+docker run -v myvol:/app/data myimage
+```
+
+🧱 **Types of Docker Storage**
+| Type            | Description                                    | Use Case                                  |
+| --------------- | ---------------------------------------------- | ----------------------------------------- |
+| **Volumes**     | Managed by Docker in `/var/lib/docker/volumes` | Most recommended for persistent data      |
+| **Bind Mounts** | Maps a specific host path to a container       | When you need control over the exact path |
+| **tmpfs**       | Stores data in memory only (temporary)         | For sensitive or fast access data         |
+
+
+
+
+
+
+
