@@ -23,6 +23,11 @@
   parent = "Categories"
   name = "Java"
   url = "/categories/java"
+
+[[main]]
+  parent = "Categories"
+  name = "DevOps"
+  url = "/categories/DevOps"
   
 [[main]]
   name = "About"

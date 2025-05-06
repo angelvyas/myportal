@@ -1,7 +1,7 @@
 ---
 title: 'GIT - Global Information Tracker'
 date: 2024-24-05
-draft:  false
+draft:  true
 featured: false  
 description: "GIT - Global Information Tracker"
 thumbnail: "/posts/git/images/git.png"
