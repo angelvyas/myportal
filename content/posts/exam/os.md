@@ -1,15 +1,15 @@
 ---
-title: "OS-LAB_EXAM"
+title: "OS"
 date: 2025-06-11
 draft:  false
 featured: false  
-description: "exam"
+description: "os"
 thumbnail: "/posts/docker/images/"
 featureImage: "/posts/docker/images/"
 shareImage: "/posts/docker/images/"
 author: "Angel Vyas"
 tags:
-    - exam
+    - os
           
 categories:     
     - general
