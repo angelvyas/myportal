@@ -1,5 +1,5 @@
 ---
-title: "..."
+title: "dbms"
 date: 2025-06-24
 draft:  false
 featured: false  
@@ -15,6 +15,8 @@ categories:
     - general
     
 ---
+
+
 
 Write a Procedure for Fibonacci series 
 create or replace procedure fib(n number) as   
