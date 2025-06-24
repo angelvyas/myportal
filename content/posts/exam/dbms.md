@@ -1,7 +1,7 @@
 ---
 title: "..."
 date: 2025-06-15
-draft:  false
+draft:  true
 featured: false  
 description: ""
 thumbnail: "/posts/docker/images/"
