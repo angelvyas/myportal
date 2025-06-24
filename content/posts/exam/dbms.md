@@ -27,11 +27,11 @@ eno:=: eid;</br>
 select job into ejob from emp where eid=eno;</br>
 if ejob='Manager' then</br>
 inc:=0.2;</br>
-update emp set salary =salary+salary*inc where eid=eno;</br>
+update emp set salary =salary+salary * inc where eid=eno;</br>
 dbms_output.put_line('Manager sal is updated');</br>
 else if</br>
 inc:=0.15;</br>
-update emp set salary=salary+salary*inc where eid=eno;</br>
+update emp set salary=salary+salary * inc where eid=eno;</br>
 dbms_output.put_line('others sal is updated);</br>
 end if;</br>
 end;</br>
