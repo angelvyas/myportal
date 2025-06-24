@@ -1,7 +1,7 @@
 ---
 title: "OS"
 date: 2025-06-11
-draft:  false
+draft:  true
 featured: false  
 description: "os"
 thumbnail: "/posts/docker/images/"
