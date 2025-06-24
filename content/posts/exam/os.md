@@ -15,7 +15,7 @@ categories:
     - general
     
 ---
-### Banker's Algorithm
+### Banker's Algorithmsssss
 ```c 
 #include <stdio.h>
 
