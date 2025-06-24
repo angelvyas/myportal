@@ -3,7 +3,7 @@ title: "..."
 date: 2025-06-15
 draft:  false
 featured: false  
-description: "dbms"
+description: ""
 thumbnail: "/posts/docker/images/"
 featureImage: "/posts/docker/images/"
 shareImage: "/posts/docker/images/"
@@ -16,7 +16,25 @@ categories:
     
 ---
 
-
+### plsql to update salary of employee 20% manager, 15% salesman and 10% for others.
+declare</br>
+job emp.job%type;</br>
+esal emp.sal%type;</br>
+eno emp.eit%type;</br>
+inc number(7,2);</br>
+begin</br>
+eno:=: eid;</br>
+select job into ejob from emp where eid=eno;</br>
+if ejob='Manager' then</br>
+inc:=0.2;</br>
+update emp set salary =salary+salary*inc where eid=eno;</br>
+dbms_output.put_line('Manager sal is updated');</br>
+else if</br>
+inc:=0.15;</br>
+update emp set salary=salary+salary*inc where eid=eno;</br>
+dbms_output.put_line('others sal is updated);</br>
+end if;</br>
+end;</br>
 
 ### Write a Procedure for Fibonacci series 
 create or replace procedure fib(n number) as   </br>
