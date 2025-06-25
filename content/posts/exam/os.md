@@ -1,5 +1,5 @@
 ---
-title: "OS"
+title: "..."
 date: 2025-06-11
 draft:  false
 featured: false  
@@ -450,4 +450,635 @@ ENTER THE NUMBER OF FRAMES :3 </br>
 1               7       0       1 </br>
 Page Fault Is 15</br>
 
+</br>
 
+### FCFS Scheduling Algorithm
+```c
+#include<stdio.h> 
+int main() 
+{ 
+int processes[] = { 1, 2, 3}; 
+int n =3;
+   int  bt[] = {10, 5, 8}; 
+     
+    int wt[n], tat[n], total_wt = 0, total_tat = 0; 
+     
+    wt[0] = 0; 
+    
+    // calculating waiting time 
+    for (int  i = 1; i < n ; i++ ) 
+        wt[i] =  bt[i-1] + wt[i-1] ; 
+    
+   // calculating turnaround time 
+   for (int  i = 0; i < n ; i++) 
+        tat[i] = bt[i] + wt[i]; 
+         
+    //Display processes along with all details 
+    printf("Processes   Burst time   Waiting time   Turn around time\n"); 
+    
+    // Calculate total waiting time and total turn  
+    // around time 
+    for (int  i=0; i<n; i++) 
+    { 
+        total_wt = total_wt + wt[i]; 
+        total_tat = total_tat + tat[i]; 
+        printf("   %d ",(i+1)); 
+        printf("       %d ", bt[i] ); 
+        printf("       %d",wt[i] ); 
+        printf("       %d\n",tat[i] ); 
+    } 
+    int s=(float)total_wt / (float)n; 
+    int t=(float)total_tat / (float)n; 
+    printf("Average waiting time = %d",s); 
+    printf("\n"); 
+    printf("Average turn around time = %d ",t); 
+  
+    return 0; 
+} 
+```
+</br>
+
+**OUTPUT**</br>
+RUN 1: </br>
+Processes     Burst time     Waiting time     Turn around time</br>
+1                  10          0                    10 </br>
+                                                                              
+2                  5           10                   15            </br>
+ 
+3                  8           15                   23</br>                      
+Average waiting time = 8                                      </br>                                                     
+Average turn around time = 16  </br>
+
+</br>
+</br>
+
+### SJF Scheduling Algorithm
+```c
+#include <stdio.h>
+#define MAX 15
+
+struct process {
+    int pid;
+    int bt;
+    int wt;
+    int tt;
+};
+
+int main() {
+    struct process proc[MAX], temp;
+    int n, i, j;
+    int total_wt = 0, total_tt = 0;
+    float avg_wt, avg_tt;
+
+    printf("Enter number of processes (max 15): ");
+    scanf("%d", &n);
+
+    printf("Enter Process ID and Burst Time:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d %d", &proc[i].pid, &proc[i].bt);
+    }
+
+    // Sort processes by burst time using bubble sort
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (proc[j].bt > proc[j + 1].bt) {
+                temp = proc[j];
+                proc[j] = proc[j + 1];
+                proc[j + 1] = temp;
+            }
+        }
+    }
+
+    // Calculate waiting time and turnaround time
+    for (i = 0; i < n; i++) {
+        if (i == 0) {
+            proc[i].wt = 0;
+        } else {
+            proc[i].wt = proc[i - 1].wt + proc[i - 1].bt;
+        }
+
+        proc[i].tt = proc[i].wt + proc[i].bt;
+        total_wt += proc[i].wt;
+        total_tt += proc[i].tt;
+    }
+
+    avg_wt = (float)total_wt / n;
+    avg_tt = (float)total_tt / n;
+
+    printf("\nProcess ID  Burst Time  Waiting Time  Turnaround Time\n");
+    for (i = 0; i < n; i++) {
+        printf("%9d  %10d  %13d  %16d\n", proc[i].pid, proc[i].bt, proc[i].wt, proc[i].tt);
+    }
+
+    printf("\nAverage Waiting Time = %.2f\n", avg_wt);
+    printf("Average Turnaround Time = %.2f\n", avg_tt);
+
+    return 0;
+}
+
+```
+</br>
+
+**OUTPUT** </br>
+Enter number of processes (max 15): 4</br>
+Enter Process ID and Burst Time:</br>
+2 4 5</br>
+3 5 6</br>
+1 7 8</br>
+</br>
+Process ID  Burst Time  Waiting Time  Turnaround Time</br>
+        5           3              0                 3</br>
+        2           4              3                 7</br>
+        5           6              7                13</br>
+        1           7             13                20</br>
+
+Average Waiting Time = 5.75</br>
+Average Turnaround Time = 10.75</br>
+
+### RR (Round Robin) Scheduling Algorithm
+
+```c
+#include <stdio.h>
+#define MAX 15
+
+struct process {
+    int pid;
+    int bt;
+    int wt;
+    int tt;
+    int rem_bt;
+};
+
+int main() {
+    struct process proc[MAX];
+    int n, i, quantum, t = 0;
+    int total_wt = 0, total_tt = 0;
+    float avg_wt, avg_tt;
+    int done;
+
+    printf("Enter number of processes (max 15): ");
+    scanf("%d", &n);
+
+    printf("Enter Process ID and Burst Time:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d %d", &proc[i].pid, &proc[i].bt);
+        proc[i].rem_bt = proc[i].bt;
+        proc[i].wt = 0;  // Initialize waiting time to 0
+    }
+
+    printf("Enter Time Quantum: ");
+    scanf("%d", &quantum);
+
+    printf("\nOrder of Process Execution:\n");
+
+    // Round Robin Scheduling
+    do {
+        done = 1;
+        for (i = 0; i < n; i++) {
+            if (proc[i].rem_bt > 0) {
+                done = 0;
+                printf("P%d ", proc[i].pid);
+
+                if (proc[i].rem_bt > quantum) {
+                    t += quantum;
+                    proc[i].rem_bt -= quantum;
+                } else {
+                    t += proc[i].rem_bt;
+                    proc[i].wt = t - proc[i].bt;
+                    proc[i].rem_bt = 0;
+                }
+            }
+        }
+    } while (!done);
+
+    // Calculate turnaround time and totals
+    for (i = 0; i < n; i++) {
+        proc[i].tt = proc[i].wt + proc[i].bt;
+        total_wt += proc[i].wt;
+        total_tt += proc[i].tt;
+    }
+
+    avg_wt = (float)total_wt / n;
+    avg_tt = (float)total_tt / n;
+
+    // Print results
+    printf("\n\n|  PID  |  BT  |  WT  |  TAT |\n");
+    printf("-------------------------------\n");
+    for (i = 0; i < n; i++) {
+        printf("|  %3d  | %3d  | %3d  | %3d  |\n", proc[i].pid, proc[i].bt, proc[i].wt, proc[i].tt);
+    }
+
+    printf("\nAverage Waiting Time: %.2f\n", avg_wt);
+    printf("Average Turnaround Time: %.2f\n", avg_tt);
+
+    return 0;
+}
+
+```
+</br>
+
+**OUTPUT**</br>
+Enter number of processes (max 15): 3</br>
+Enter Process ID and Burst Time:</br>
+1 10</br>
+2 5</br>
+3 8</br>
+Enter Time Quantum: 2</br>
+</br>
+Order of Process Execution:</br>
+P1 P2 P3 P1 P2 P3 P1 P2 P3 P1 P3 P1</br>
+</br>
+|  PID  |  BT  |  WT  |  TAT |</br>
+-------------------------------</br>
+|    1  |  10  |  13  |  23  |</br>
+|    2  |   5  |  10  |  15  |</br>
+|    3  |   8  |  13  |  21  |</br>
+</br>
+Average Waiting Time: 12.00</br>
+Average Turnaround Time: 19.67</br>
+ </br>
+ </br>
+
+### Priority Scheduling Algorithm
+```c
+#include <stdio.h>
+#define MAX 15
+
+struct process {
+    int pid;
+    int priority;
+    int bt;
+    int wt;
+    int tt;
+};
+
+int main() {
+    struct process proc[MAX], temp;
+    int n, i, j;
+    int total_wt = 0, total_tt = 0;
+    float avg_wt, avg_tt;
+
+    printf("Enter number of processes (max 15): ");
+    scanf("%d", &n);
+
+    printf("Enter Process ID, Burst Time, and Priority for each process:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d %d %d", &proc[i].pid, &proc[i].bt, &proc[i].priority);
+    }
+
+    // Sort by priority (lower number = higher priority)
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (proc[j].priority > proc[j + 1].priority) {
+                temp = proc[j];
+                proc[j] = proc[j + 1];
+                proc[j + 1] = temp;
+            }
+        }
+    }
+
+    // Calculate waiting time and turnaround time
+    proc[0].wt = 0;
+    proc[0].tt = proc[0].bt;
+    total_tt = proc[0].tt;
+
+    for (i = 1; i < n; i++) {
+        proc[i].wt = proc[i - 1].wt + proc[i - 1].bt;
+        proc[i].tt = proc[i].wt + proc[i].bt;
+        total_wt += proc[i].wt;
+        total_tt += proc[i].tt;
+    }
+
+    avg_wt = (float)total_wt / n;
+    avg_tt = (float)total_tt / n;
+
+    // Output the table
+    printf("\n| Process ID | Priority | Burst Time | Waiting Time | Turnaround Time |\n");
+    printf("-----------------------------------------------------------------------\n");
+
+    for (i = 0; i < n; i++) {
+        printf("|     %3d    |   %3d    |    %3d     |     %3d      |      %3d       |\n",
+               proc[i].pid, proc[i].priority, proc[i].bt, proc[i].wt, proc[i].tt);
+    }
+
+    printf("\nAverage Waiting Time = %.2f\n", avg_wt);
+    printf("Average Turnaround Time = %.2f\n", avg_tt);
+
+    return 0;
+}
+
+```
+</br>
+
+**OUTPUT**</br>
+ 
+ 
+Enter number of processes (max 15): 3</br>
+Enter Process ID, Burst Time, and Priority for each process:</br>
+1 10 2</br>
+2 5 1</br>
+3 8 3</br>
+</br>
+| Process ID | Priority | Burst Time | Waiting Time | Turnaround Time |</br>
+-----------------------------------------------------------------------</br>
+|       2    |     1    |      5     |       0      |        5       |</br>
+|       1    |     2    |     10     |       5      |       15       |</br>
+|       3    |     3    |      8     |      15      |       23       |</br>
+</br>
+Average Waiting Time = 6.67</br>
+Average Turnaround Time = 14.33</br>
+ </br>
+ </br>
+
+ **Programs to implement following system calls of UNIX operating system: fork, exec, getpid, exit, wait, close, stat, opendir, readdir ,closedir and lseek**  
+
+####  Write a C program to read from  file  and write  to another file.
+```c
+#include<stdio.h> 
+#include<stdlib.h> 
+#include<unistd.h> 
+#include<fcntl.h> 
+#define BUFF_SIZE 1000 
+int main(void) 
+{ 
+int n,fd1,fd2; 
+char buff[BUFF_SIZE]; 
+//open the file for reading 
+fd1 = open("testfile.txt",O_RDWR,0644); 
+//read the data from file 
+n=read(fd1,buff,BUFF_SIZE); 
+// creating a new file using open. 
+fd2=open("fileforcopy.txt", O_CREAT | O_RDWR, 0777); 
+//writting data to file (fd) 
+if( write(fd2, buff, n) == n)
+printf("file copying is successful. and the data is:\n"); 
+//Write to display (1 is standard fd for output device) 
+write(1, buff, n); 
+//closing the files 
+int close(int fd1); 
+int close(int fd2); 
+return 0; 
+} 
+```
+</br>
+
+**INPUT & OUTPUT**</br>
+testfile.txt file copied to fileforcopy.txt  </br>
+file copying is successful. and the data is: hello mgit</br>
+</br>
+</br>
+
+
+####  Program using lseek() system call that reads 10 characters from file “seeking” and print on screen. Skip next 5 characters and again read 10 characters and write on screen. 
+```c
+#include <stdio.h>      // for perror()
+#include <unistd.h>     // for read(), write()
+#include <fcntl.h>      // for open()
+#include <sys/types.h>  // for types like mode_t
+#include <sys/stat.h>   // for file permissions
+
+int main() {
+    int f;
+    char buff[10];
+
+    // Open the file 'seeking' in read-write mode
+    f = open("seeking", O_RDWR);
+    if (f < 0) {
+        perror("Error opening file");
+        return 1;
+    }
+
+    // Read first 10 bytes and write to stdout
+    read(f, buff, 10);
+    write(1, buff, 10);
+
+    // Read next 10 bytes and write to stdout
+    read(f, buff, 10);
+    write(1, buff, 10);
+
+    close(f);
+    return 0;
+}
+ 
+```
+**how to execute**</br>
+>echo -n "1234567890abcdefghijxxxxxxxxxx" > seeking</br>
+nano file_seek.c</br>
+then paste code here</br>
+compile:gcc file_seek.c -o file_seek</br>
+run:./file_seek</br>
+
+</br>
+
+**OUTPUT**</br>
+1234567890abcdefghij
+
+</br>
+</br>
+
+
+#### Write a C program to print file status information using stat function.
+```c
+#include<stdio.h> 
+#include <sys/types.h> 
+#include <sys/stat.h> 
+#include <dirent.h> 
+#include<unistd.h> 
+struct stat statbuf; 
+char dirpath[256]; 
+int main(int argc, char *argv[]) 
+{ 
+// getcwd is to get the name of the current working directory if found 
+getcwd(dirpath,256); 
+DIR *dir = opendir(dirpath); 
+struct dirent *dp; 
+for (dp=readdir(dir); dp != NULL ;  dp=readdir(dir)) 
+{ 
+stat(dp->d_name, &statbuf); 
+printf("the file name is %s \n", dp->d_name); 
+printf("dir = %d\n", S_ISDIR(statbuf.st_mode)); 
+printf("file size is %ld in bytes \n", statbuf.st_size); 
+printf("last modified time is %ld in seconds \n", statbuf.st_mtime); 
+printf("last access time is %ld in seconds \n", statbuf.st_atime); 
+printf("The device containing the file is %ld\n", statbuf.st_dev); 
+printf("File serial number is %ld\n\n", statbuf.st_ino); 
+} 
+} 
+```
+</br>
+
+**OUTPUT**</br>
+the file name is fileone.txt</br> 
+dir = 0 </br>
+file size is 31 in bytes </br>
+last modified time is 1581656490 in seconds </br>
+last access time is 1581656969 in seconds </br>
+The device containing the file is 2053 </br>
+File serial number is 2099241 </br>
+the file name is filestatus.c </br>
+dir = 0 </br>
+file size is 772 in bytes </br>
+last modified time is 1581146159 in seconds </br>
+last access time is 1581920990 in seconds </br>
+The device containing the file is 2053 </br>
+File serial number is 2099181 </br>
+...(and so on)</br>
+</br>
+</br>
+
+**how to execute:**
+>nano dirinfo.c</br>
+then paste the code</br>
+>compile: gcc dirinfo.c -o dirinfo</br>
+>run: ./dirinfo</br>
+</br>
+</br>
+
+#### Program for opendir(), readdir() and closedir system calls
+```c
+#include <stdio.h>
+#include <stdlib.h>     // for exit()
+#include <dirent.h>     // for DIR, struct dirent
+
+int main(int argc, char *argv[]) {
+    char buff[100];
+    DIR *dirp;
+    struct dirent *dptr;
+
+    printf("\nEnter Directory Name: ");
+    scanf("%s", buff);
+
+    dirp = opendir(buff);
+    if (dirp == NULL) {
+        printf("The given directory does not exist.\n");
+        exit(1);
+    }
+
+    printf("\nFiles in the directory:\n");
+    while ((dptr = readdir(dirp)) != NULL) {
+        printf("%s\n", dptr->d_name);
+    }
+
+    closedir(dirp);
+    return 0;
+}
+ ```
+
+ **how to execute:**</br>
+ >nano read_dir.c</br>
+then paste the code</br>
+compile: gcc read_dir.c -o read_dir</br>
+run: ./read_dir</br>
+</br>
+
+**OUTPUT**</br>
+Enter Directory Name: .</br>
+</br>
+Files in the directory:</br>
+.</br>
+..</br>
+read_dir</br>
+read_dir.c</br>
+some_other_file.txt</br>
+
+ </br>
+ </br>
+
+ ####  C Program for fork() and  getpid()  system call
+ ```c
+ #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h> // for exit()
+
+int main() {
+    int pid, pid1, pid2;
+
+    pid = fork();  // create a new process
+
+    if (pid == -1) {
+        printf("ERROR IN PROCESS CREATION\n");
+        exit(1);
+    }
+
+    if (pid != 0) {
+        pid1 = getpid();
+        printf("\nThe parent process ID is %d\n", pid1);
+    } else {
+        pid2 = getpid();
+        printf("\nThe child process ID is %d\n", pid2);
+    }
+
+    return 0;
+}
+ 
+```
+</br>
+</br>
+
+**OUTPUT**</br>
+The parent process ID is 58936</br>
+
+The child process ID is 58937</br>
+
+**how to execute:**</br>
+>save the code: nano fork_demo.c</br>
+>compile:gcc fork_demo.c -o fork_demo</br>
+>run:./fork_demo</br>
+</br>
+</br>
+
+####  program to execute another C program using exec system call.
+first create hello.c
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello! I am the child program.\n");
+    return 0;
+}
+```
+then exec_demo.c
+```c
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/wait.h>  // Required for wait()
+
+int main() {
+    pid_t pid = fork();
+
+    if (pid < 0) {
+        perror("Fork failed");
+        exit(1);
+    }
+
+    if (pid == 0) {
+        // Child process
+        printf("Child process about to run hello...\n");
+        execl("./hello", "hello", NULL);  // Run the other C program
+
+        // If exec fails
+        perror("execl failed");
+        exit(1);
+    } else {
+        // Parent process
+        printf("Parent process waiting for child...\n");
+        wait(NULL);
+        printf("Child process completed.\n");
+    }
+
+    return 0;
+}
+```
+**how to execute**</br>
+>compile both files: gcc hello.c -o hello</br>
+>gcc exec_demo.c -o exec_demo</br>
+>to run:./exec_demo</br>
+</br>
+
+
+**OUTPUT**</br>
+Parent process waiting for child...</br>
+Child process about to run hello...</br>
+Hello! I am the child program.</br>
+Child process completed.</br>
