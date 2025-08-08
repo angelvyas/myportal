@@ -4,9 +4,9 @@ date: 2025-07-08
 draft:  false
 featured: false  
 description: "GIT - Global Information Tracker"
-thumbnail: "/posts/git/images/git.png"
-featureImage: "/posts/git/images/git.png" 
-shareImage: "/posts/git/images/git.png"
+thumbnail: "/posts/general/images/git.png"
+featureImage: "/posts/general/images/git.png" 
+shareImage: "/posts/general/images/git.png"
 author: "Angel Vyas"
 tags:
     - Git
@@ -69,7 +69,7 @@ It adds features on top of Git:
 ## 4. **Git Workflow Overview**
 1. **Local Work** (in your machine):
    - Edit files.
-   - Stage changes → `git add`
+   - Stage changes → `git add` (to stage all deletions in one go use `git add -u`)
    - Commit changes → `git commit`
 
 2. **Sync with Remote**:
