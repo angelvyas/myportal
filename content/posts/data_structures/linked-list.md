@@ -85,10 +85,13 @@ void delete(int value)
     {
         if (current->data == value)
         {
-            if (previous == NULL)
+            if (previous == NULL){
                 head = current->next;
-            else
+            }
+
+            else{
                 previous->next = current->next;
+            }
             free(current);
             return;
         }
@@ -131,17 +134,21 @@ switch(ch)
     printf("enter the data value to be inserted");
     scanf("%d",&d);
     insert(d);
-		break;
+	break;
+
 	case 2:
     int a;
     printf("enter the data value to be deleted");
     scanf("%d",&a);
     delete(a);
-		break;
+	break;
 
-	case 3:traverse();
-		break;
-	case 4:exit(0);
+	case 3:
+    traverse();
+	break;
+
+	case 4:
+    exit(0);
 
 	default: printf("Invalid\n");
 }
