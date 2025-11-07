@@ -61,14 +61,10 @@ HYDERABAD — 2023 - 2027</li>
 <p>A modern and responsive portfolio to showcase my projects and skills using.</p>
 <hr>
 
-<h2>📄 Resume</h2>
-<p><a href="resume.pdf">📥 Download Resume (PDF)</a></p>
-
-<hr>
 
 <h2>📫 Contact</h2>
 <ul>
-<li>📧 Email: <a href="https://mail.google.com/mail/?view=cm&to=angelvyaas@gmail.com" target="_blank">a">angelvyaas@gmail.com</a></li>
+<li>📧 Email: <a href="https://mail.google.com/mail/?view=cm&to=angelvyaas@gmail.com" target="_blank">angelvyaas@gmail.com</a></li>
 <li>🐙 GitHub: <a href="https://github.com/angelvyas">github.com/angelvyas</a></li>
 <li>💼 LinkedIn: <a href="https://linkedin.com/in/angelvyas">linkedin.com/in/angelvyas</a></li>
 <li>🌐 Website: <a href="https://angelvyas.com">angelvyas.com</a></li>
