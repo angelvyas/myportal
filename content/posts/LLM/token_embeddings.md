@@ -1,5 +1,5 @@
 ---
-title: 'Token Embeddings'
+title: 'Token Embeddings (Data Preprocessing)'
 date: 2025-11-05
 draft:  false
 featured: false  
@@ -13,13 +13,13 @@ tags:
 categories:     
     - llm
 ---
-# 🧠 Token Embeddings in LLMs
+# 🧠2.Token Embeddings in LLMs
 
 They’re also often called **vector embeddings** or **word embeddings**.
 
 ---
 
-## 🔤 From Tokens to Token Embeddings (Step 3)
+## 🔤 From Tokens to Token Embeddings 
 
 Before a model can “read” anything, it first breaks text into smaller chunks called **tokens**.  
 Each token is then assigned a unique **token ID**, a simple integer from the vocabulary.  

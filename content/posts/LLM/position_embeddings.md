@@ -1,5 +1,5 @@
 ---
-title: 'Positional Embeddings'
+title: 'Positional & Input Embeddings (Data Preprocessing)'
 date: 2025-11-07
 draft:  false
 featured: false  
@@ -14,7 +14,7 @@ categories:
     - llm
 ---
 
-# 📘 Positional Embeddings
+# 📘3. Positional Embeddings
 
 ## 🧠 Why Do We Need Positional Embeddings?
 
@@ -85,8 +85,16 @@ input_embeddings = token_embeddings + positional_embeddings
 ```
 
 ---
+##  Input Embeddings
+In modern transformer-based models, the **final input embedding** is formed by combining two components:
 
-## 🧪 Implementing Positional Embeddings (Hands-On)
+```
+**Input Embedding = Token Embedding + Positional Embedding**
+```
+
+---
+
+## 🧪 Implementing Positional & Input Embeddings (Hands-On)
 
 
 
