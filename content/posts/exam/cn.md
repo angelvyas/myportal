@@ -1,17 +1,17 @@
 ---
-title: '---'
-date: 2025-18-08
+title: 'practise'
+date: 2025-11-18
 draft:  false
 featured: false  
 description: "networks"
-thumbnail: "/posts/LLM/images/"
-featureImage: "/posts/LLM/images/" 
-shareImage: "/posts/LLM/images/"
+thumbnail: "/posts/exam/images/smile.png"
+featureImage: "/posts/exam/images/smile.png" 
+shareImage: "/posts/exam/images/smile.png"
 author: "Angel Vyas"
 tags:
-    - llm
+    - general
 categories:     
-    - llm
+    - general
 ---
 
 ### GBN
