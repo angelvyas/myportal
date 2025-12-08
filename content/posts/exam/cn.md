@@ -257,3 +257,99 @@ int main() {
     return 0;
 }
 ```
+
+### distance vector routing algorithm
+```c
+#include <stdio.h>
+
+#define INF 999
+
+int main(){
+    int n, i, j, k, cost[10][10], dist[10][10];
+
+    printf("Enter number of nodes: ");
+    scanf("%d",&n);
+
+    printf("Enter cost matrix (999 for no link):\n");
+    for(i=0;i<n;i++)
+        for(j=0;j<n;j++)
+            scanf("%d",&cost[i][j]), dist[i][j]=cost[i][j];
+
+    // Distance Vector update
+    for(k=0;k<n;k++)
+        for(i=0;i<n;i++)
+            for(j=0;j<n;j++)
+                if(dist[i][j] > dist[i][k] + dist[k][j])
+                    dist[i][j] = dist[i][k] + dist[k][j];
+
+    printf("\nFinal Distance Table:\n");
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++)
+            printf("%d ", dist[i][j]);
+        printf("\n");
+    }
+
+    return 0;
+}
+```
+### crc
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char data[50], div[20], temp[50];
+    int i, j, dlen, vlen;
+
+    printf("Enter data: ");
+    scanf("%s", data);
+
+    printf("Enter divisor: ");
+    scanf("%s", div);
+
+    dlen = strlen(div);
+    vlen = strlen(data);
+
+    for(i=0;i<dlen-1;i++)
+        data[vlen+i] = '0';
+    data[vlen+dlen-1]='\0';
+
+    strcpy(temp, data);
+
+    for(i=0;i<vlen;i++){
+        if(temp[i]=='1'){
+            for(j=0;j<dlen;j++)
+                temp[i+j] = (temp[i+j]==div[j]) ? '0' : '1';
+        }
+    }
+
+    printf("CRC = %s\n", temp+vlen);
+    printf("Final data = %s%s\n", data, temp+vlen);
+
+    return 0;
+}
+```
+
+### checksum
+```c
+#include <stdio.h>
+
+int main() {
+    int n, i, sum = 0, a[20];
+
+    printf("Enter number of elements: ");
+    scanf("%d",&n);
+
+    printf("Enter the data: ");
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+        sum += a[i];
+    }
+
+    sum = ~sum;   // 1's complement
+
+    printf("Checksum = %d\n", sum);
+
+    return 0;
+}
+```
