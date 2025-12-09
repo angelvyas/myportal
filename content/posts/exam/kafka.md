@@ -14,23 +14,23 @@ categories:
     - general
 ---
 
-kafka in wsl home folder
-cd ~/kafka_2.13-3.8.0
-bin/zookeeper-server-start.sh config/zookeeper.properties
-bin/kafka-server-start.sh config/server.properties
-nano ~/kafka_2.13-3.8.0/config/server.properties
-# Listen on all network interfaces
-listeners=PLAINTEXT://0.0.0.0:9092
+kafka in wsl home folder</br>
+cd ~/kafka_2.13-3.8.0</br>
+bin/zookeeper-server-start.sh config/zookeeper.properties</br>
+bin/kafka-server-start.sh config/server.properties</br>
+nano ~/kafka_2.13-3.8.0/config/server.properties</br>
+# Listen on all network interfaces</br>
+listeners=PLAINTEXT://0.0.0.0:9092</br>
 
 # Advertise WSL IP so Windows IntelliJ can connect
-advertised.listeners=PLAINTEXT://<WSL-IP>:9092
-hostname -I
-cd ~/kafka_2.13-3.8.0
-bin/kafka-server-start.sh config/server.properties
-bin/kafka-console-producer.sh --topic test-topic --bootstrap-server <WSL-IP>:9092
+advertised.listeners=PLAINTEXT://<WSL-IP>:9092</br>
+hostname -I</br>
+cd ~/kafka_2.13-3.8.0</br>
+bin/kafka-server-start.sh config/server.properties</br>
+bin/kafka-console-producer.sh --topic test-topic --bootstrap-server <WSL-IP>:9092</br>
 
 
-props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.22.144.1:9092");
+props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.22.144.1:9092");</br>
 
 ### INTELLIJ CODE 
 ```java
