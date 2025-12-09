@@ -32,8 +32,8 @@ bin/kafka-console-producer.sh --topic test-topic --bootstrap-server <WSL-IP>:909
 
 props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.22.144.1:9092");</br>
 
-### INTELLIJ CODE 
-```java
+### INTELLIJ CODE
+
 package org.example;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -85,11 +85,12 @@ public class Main {
         }
     }
 }
-```
+
+
 
 ### pom.xml
-```xml
-<project xmlns="http://maven.apache.org/POM/4.0.0"
+
+### "<project xmlns="http://maven.apache.org/POM/4.0.0""""
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -112,11 +113,12 @@ public class Main {
     </dependencies>
 
 </project>
-```
+
 
 ## 1	Installation of kafka on windows and running the kafka server and zookeeper.Creating a topic
 installation on ubuntu
-```
+
+```bash
 cd ~
 wget https://downloads.apache.org/kafka/3.8.0/kafka_2.13-3.8.0.tgz
 tar -xvzf kafka_2.13-3.8.0.tgz
