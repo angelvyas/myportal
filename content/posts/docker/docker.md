@@ -1,6 +1,6 @@
 ---
 title: "DOCKER"
-date: 2025-05-06
+date: 2026-03-15
 draft:  false
 featured: false  
 description: "DOCKER - Basics"
@@ -59,14 +59,16 @@ Example: An image might be based on Ubuntu, with Python and your app code instal
 📦 **Image Commands**
   | Command | Description |
  | :----| :---- |
-|docker pull <image_name>|	Download an image from Docker Hub|
-|docker build -t <name> .|	Build an image from a Dockerfile in current dir|
-|docker imagses|	List all local images|
-|docker rmi <image>|	Remove an image|
-|docker tag <src> < target>|	Tag an image for a repo|
-|docker push <image_name>|	Push image to Docker Hub or registry|  
+|docker pull image_name|	Download an image from Docker Hub|
+|docker build -t image_name .|	Build an image from a Dockerfile in current dir|
+|docker images|	List all local images|
+|docker rmi image_name|	Remove an image|
+|docker tag source_image:TAG target_image:TAG|	Tag an image for a repo|
+|docker push image_name|	Push image to Docker Hub or registry|  
 
-
+**NOTE**
+- . in docker build is to represent current directory.
+- example of tagging an image: docker tag port-demo:latest port-demo:v1.
 
 ### 📦 **Docker Container**:
 - A Docker container is a `running instance of a Docker image`.
@@ -81,10 +83,10 @@ Example: An image might be based on Ubuntu, with Python and your app code instal
 🧱 **Container Commands**
 |Command|	Description|
 |:----|:------|
-|docker run <image>|	Run a container from image|
-|docker run -it <image>|	Interactive terminal|
-|docker run -d <image>|	Run in background (detach mode)|
-|docker run --name <name> <image>|	Assign a name to the container|
+|docker run <image_name>|	Run a container from image|
+|docker run -it <image_name>|	Interactive terminal|
+|docker run -d <image_name>|	Run in background (detach mode)|
+|docker run --name <name > <image_name>|	Assign a name to the container|
 |docker ps|	List running containers|
 |docker ps -a|	List all containers|
 |docker stop <container>|	Stop a running container|
@@ -138,7 +140,8 @@ Port binding is how you connect your local machine (host) to the inside of a Doc
 ```bash
 docker run -p 8080:80 nginx
 ```
-🔍 `What it does`:
+🔍 `What it does`: </br>
+
 Docker runs the NGINX container, which serves on port 80 (inside the container).
 
 The -p 8080:80 flag maps:
@@ -148,14 +151,31 @@ So you can now access the container at:
 > 👉 http://localhost:8080
 
 **COMMAND**
-> docker run -p <host_port>:<container_port> <image>
+> docker run -p <host_port>:<container_port> image_name
 
 💡 **Bonus Tip: Exposing vs Binding**
 
-EXPOSE 80 in Dockerfile = suggests the container listens on port 80.
-- But only -p actually binds it to the host for access.
+- `EXPOSE 80` in Dockerfile = The containerized app is expected to listen on port 80 (only for documentation purpose), It does not make the port accessible from the host machine.
+- To access a container from the host machine, you must explicitly bind a host port to a container port using the -p flag when running the container.
 
-NOTE: if for eg host port 8080 is ported with the container port 3306, then the host port now cannot connect to any other containers port now, only one port binding at a time between host port and container port.
+</br>
+
+###### `Important Rule for Port Binding`
+
+A **host port can only be mapped to one container at a time**.  
+If a container is already using a host port, another container cannot use the same host port.
+
+Container 1: 8080 → 80 (works)</br>
+Container 2: 8080 → 5000 (fails — port already in use)
+
+To run multiple containers, use different host ports:
+
+8080 → Container1:80</br>
+8081 → Container2:80</br>
+8082 → Container3:80</br>
+
+Even if all containers use the same internal port, they can run simultaneously with different host ports.
+
 
 ### **Docker v/s VM**
 
