@@ -57,18 +57,29 @@ Example: An image might be based on Ubuntu, with Python and your app code instal
 
 
 📦 **Image Commands**
-  | Command | Description |
- | :----| :---- |
-|docker pull image_name|	Download an image from Docker Hub|
-|docker build -t image_name .|	Build an image from a Dockerfile in current dir|
-|docker images|	List all local images|
-|docker rmi image_name|	Remove an image|
-|docker tag source_image:TAG target_image:TAG|	Tag an image for a repo|
-|docker push image_name|	Push image to Docker Hub or registry|  
+ # Docker Image Commands
+
+| Command | Description |
+|--------|-------------|
+| `docker images` | List all Docker images |
+| `docker image ls` | List all Docker images |
+| `docker pull image_name` | Download an image from a registry |
+| `docker build -t image_name .` | Build an image from a Dockerfile |
+| `docker tag image_name username/repository:tag` | Tag an image for pushing to a registry |
+| `docker push username/repository:tag` | Push an image to a registry |
+| `docker rmi image_name` | Remove a Docker image |
+| `docker rmi image_id` | Remove an image using its ID |
+| `docker image inspect image_name` | Display detailed information about an image |
+| `docker image history image_name` | Show the history of an image layers |
+| `docker image prune` | Remove unused images |
+| `docker save image_name -o file_name.tar` | Save an image to a tar archive |
+| `docker load -i file_name.tar` | Load an image from a tar archive |
+| `docker search image_name` | Search for an image in a registry |
 
 **NOTE**
 - . in docker build is to represent current directory.
 - example of tagging an image: docker tag port-demo:latest port-demo:v1.
+- To push images to Docker Hub, the image must be tagged in the format username/repository:tag. This associates the image with a Docker Hub repository so Docker knows where to push it.
 
 ### 📦 **Docker Container**:
 - A Docker container is a `running instance of a Docker image`.
@@ -81,20 +92,36 @@ Example: An image might be based on Ubuntu, with Python and your app code instal
  
 
 🧱 **Container Commands**
-|Command|	Description|
-|:----|:------|
-|docker run <image_name>|	Run a container from image|
-|docker run -it <image_name>|	Interactive terminal|
-|docker run -d <image_name>|	Run in background (detach mode)|
-|docker run --name <name > <image_name>|	Assign a name to the container|
-|docker ps|	List running containers|
-|docker ps -a|	List all containers|
-|docker stop <container>|	Stop a running container|
-|docker start <container>|	Start a stopped container|
-|docker restart <container>|	Restart a container|
-|docker rm <container>|	Remove a container|
-|docker exec -it <container_id> bash|	Run command inside a container|
-|docker logs <container>|	View container logs|
+# Docker Container Commands
+
+| Command | Description |
+|--------|-------------|
+| `docker run image_name` | Create and start a container from an image |
+| `docker run -d image_name` | Run a container in detached (background) mode |
+| `docker run -it image_name` | Run a container interactively with a terminal |
+| `docker run --name container_name image_name` | Run a container with a specific name |
+| `docker ps` | List all running containers |
+| `docker ps -a` | List all containers (running and stopped) |
+| `docker stop container_name` | Stop a running container |
+| `docker start container_name` | Start a stopped container |
+| `docker restart container_name` | Restart a container |
+| `docker kill container_name` | Force stop a container immediately |
+| `docker rm container_name` | Remove a container |
+| `docker rm -f container_name` | Force remove a running container |
+| `docker logs container_name` | View logs of a container |
+| `docker logs -f container_name` | Follow container logs in real time |
+| `docker exec container_name command` | Execute a command inside a running container |
+| `docker exec -it container_name bash` | Open an interactive bash shell inside a container |
+| `docker attach container_name` | Attach the terminal to a running container |
+| `docker inspect container_name` | Display detailed information about a container |
+| `docker top container_name` | Show running processes inside a container |
+| `docker stats` | Display live resource usage statistics of containers |
+| `docker pause container_name` | Pause all processes in a container |
+| `docker unpause container_name` | Resume a paused container |
+| `docker rename old_container_name new_container_name` | Rename a container |
+| `docker cp file_path container_name:/path` | Copy files between host and container |
+| `docker port container_name` | Show port mappings of a container |
+| `docker wait container_name` | Wait until a container stops and return exit code |
 
 
 ### **Docker Image Layers**
@@ -221,14 +248,20 @@ Docker networking lets containers communicate:
 Just like real computers, containers need IP addresses, ports, and rules to talk to one another.
 
 **COMMANDS**
-|Command|	Description|
-|:----|:----|
-|docker network ls|	List all networks|
-|docker network inspect <network_name>|	Show network details (IP ranges, connected containers)|
-|docker network create <network_name>|	Create a custom network|
-|docker network rm <network_name>|	Remove a network|
-|docker network connect <network_name> <container_name>	|Add container to a network|
-|docker network disconnect <netwok_name> <container_name>|	Remove container from network|
+# Docker Network Commands
+
+| Command | Description |
+|--------|-------------|
+| `docker network ls` | List all Docker networks |
+| `docker network create network_name` | Create a new Docker network |
+| `docker network inspect network_name` | Display detailed information about a network |
+| `docker network connect network_name container_name` | Connect a container to a network |
+| `docker network disconnect network_name container_name` | Disconnect a container from a network |
+| `docker network rm network_name` | Remove a Docker network |
+| `docker network prune` | Remove all unused networks |
+| `docker network create --driver bridge network_name` | Create a bridge network |
+| `docker network create --driver host network_name` | Create a host network |
+| `docker network create --driver overlay network_name` | Create an overlay network for multi-host communication |
 
 ### **Docker Compose**
 Docker Compose is a tool that lets you define and run `multi-container` Docker applications easily using a simple `YAML configuration` file.
@@ -335,7 +368,112 @@ docker run -v myvol:/app/data myimage
 | **Bind Mounts** | Maps a specific host path to a container       | When you need control over the exact path |
 | **tmpfs**       | Stores data in memory only (temporary)         | For sensitive or fast access data         |
 
+# Docker Fundamentals
 
+## Hypervisor
+A **hypervisor** is the layer that virtualizes hardware so multiple operating systems can run on the same physical machine.
+
+It allows multiple virtual machines to share the same hardware resources.
+
+---
+
+## Containers and the OS Kernel
+
+Containers contain **user-space parts of an operating system**, but **not the kernel**.
+
+This means containers include things like:
+
+- Application code
+- Libraries
+- Dependencies
+- System utilities
+
+However, they **do not include their own kernel**.
+
+---
+
+## Container Runtime
+
+A **container runtime** like Docker is responsible for creating and running containers.
+
+Containers include:
+
+- The application
+- Dependencies
+- User-space OS components
+
+But **kernel-level operations are handled by the host machine’s operating system**.
+
+So the container runtime manages containers while the **host OS kernel executes system calls**.
+
+---
+
+## What Actually Runs in a Container
+
+When you run:
+
+```bash
+docker run ubuntu
+```
+
+You might think:
+
+> "Ubuntu OS is running inside the container."
+
+But in reality:
+
+- Only **Ubuntu user-space tools** are running.
+- The **kernel is still the host machine's kernel**.
+
+So the container is **not running a full operating system**.
+
+---
+
+## Docker with WSL Integration
+
+When **WSL integration is enabled**, Docker Desktop runs the **Docker Engine inside a WSL2 virtual machine (`docker-desktop`)**.
+
+This VM provides the **Linux kernel required for containers**.
+
+---
+
+## Linux Kernel Requirement
+
+Regardless of whether Docker uses **WSL2** or **Hyper-V**:
+
+❗ **Containers always require a Linux kernel.**
+
+Since Windows does not have a Linux kernel, Docker must run a **Linux virtual machine**.
+
+This can be provided by:
+
+- **WSL2 VM**
+- **Hyper-V VM**
+
+---
+
+## Relationship Between WSL2 and Docker
+
+The relationship between these components is:
+
+- **WSL2 → Provides the Linux OS environment**
+- **Docker → Runs isolated applications (containers) inside that OS**
+
+Architecture example:
+
+```
+Hardware
+   ↑
+Windows
+   ↑
+WSL2 (Linux Kernel)
+   ↑
+Docker Engine
+   ↑
+Containers
+```
+
+Containers then run as **isolated processes sharing the same Linux kernel**.
 
 
 
