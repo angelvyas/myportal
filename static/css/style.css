@@ -1,0 +1,300 @@
+/* 🌐 BASE */
+body {
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+/* 🌌 DARK MODE */
+[data-mode="dim"] body {
+  background-color: #0f0f0f;
+  color: #e5e7eb;
+}
+
+/* ☀️ LIGHT MODE */
+[data-mode="lit"] body {
+  background-color: #f8f5f0;
+  color: #111827;
+}
+
+/* 🔥 HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+/* DARK HERO */
+[data-mode="dim"] .hero h1 {
+  color: #7c3aed;
+  text-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
+}
+
+/* LIGHT HERO */
+[data-mode="lit"] .hero h1 {
+  color: #6d28d9;
+  text-shadow: none;
+}
+
+.hero-content {
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tagline {
+  font-size: 1.8rem;
+  margin-top: 15px;
+  opacity: 0.85;
+}
+
+.now {
+  margin-top: 30px;
+}
+
+.now li {
+  font-size: 1.2rem;
+  margin: 8px 0;
+}
+
+/* 🧩 POSTS GRID */
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  list-style: none;
+}
+
+/* 🧊 CARDS */
+.post-card {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* DARK CARD */
+[data-mode="dim"] .post-card {
+  background: #1a1a1a;
+}
+
+/* LIGHT CARD */
+[data-mode="lit"] .post-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.post-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(124, 58, 237, 0.3);
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card-header {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-meta {
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+.card-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* 🧠 POST PAGE */
+.post-container {
+  max-width: 750px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.post-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+/* DARK TITLE */
+[data-mode="dim"] .post-title {
+  color: #7c3aed;
+}
+
+/* LIGHT TITLE */
+[data-mode="lit"] .post-title {
+  color: #6d28d9;
+}
+
+.post-meta {
+  opacity: 0.6;
+  margin-bottom: 25px;
+}
+
+.post-image img {
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+/* TOC */
+.post-toc {
+  padding: 15px;
+  border-radius: 10px;
+  margin: 30px 0;
+}
+
+/* DARK TOC */
+[data-mode="dim"] .post-toc {
+  background: #1a1a1a;
+}
+
+/* LIGHT TOC */
+[data-mode="lit"] .post-toc {
+  background: #f3f4f6;
+}
+
+/* CONTENT */
+.post-content {
+  line-height: 1.9;
+  font-size: 1.15rem;
+}
+
+/* DARK TEXT */
+[data-mode="dim"] .post-content {
+  color: #d1d5db;
+}
+
+/* LIGHT TEXT */
+[data-mode="lit"] .post-content {
+  color: #1f2937;
+}
+
+.post-content p {
+  margin: 20px 0;
+}
+
+.post-content h2 {
+  margin-top: 40px;
+  font-size: 1.8rem;
+}
+
+.post-content h3 {
+  margin-top: 30px;
+  font-size: 1.4rem;
+}
+
+/* CODE */
+.post-content pre {
+  padding: 15px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.post-content code {
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
+/* DARK CODE */
+[data-mode="dim"] .post-content pre,
+[data-mode="dim"] .post-content code {
+  background: #1a1a1a;
+}
+
+/* LIGHT CODE */
+[data-mode="lit"] .post-content pre,
+[data-mode="lit"] .post-content code {
+  background: #0d1117;
+  color: #e6edf3;
+}
+
+.post-content a {
+  color: #7c3aed;
+}
+
+/* 📊 PROGRESS BAR */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: #7c3aed;
+  width: 0%;
+  z-index: 999;
+}
+
+/* 🌌 PARTICLES */
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+/* ✨ CURSOR GLOW - Adjusted */
+
+#cursor-glow {
+  position: fixed;
+  width: 85px; /* smaller size */
+  height: 85px; /* smaller size */
+  background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 50%); /* lighter purple */
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/* 💭 THOUGHTS */
+#thoughts {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 📄 CONTENT ABOVE ALL */
+main, header, footer {
+  position: relative;
+  z-index: 3;
+}

@@ -3,3 +3,12 @@ languageCode = 'en-us'
 title = 'Angel Vyas'
 theme = 'clarity'
 unsafe = true
+
+[markup]
+  [markup.highlight]
+    style = "monokai"        # or "dracula", "github-dark", "nord"
+    lineNos = false
+    noClasses = false
+
+[params]
+  customCSS = ["css/style.css"]

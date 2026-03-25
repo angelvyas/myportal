@@ -1,0 +1,162 @@
+{{- $params := site.Params }}
+{{- $separator := default "|" $params.titleSeparator }}
+{{- $title := "" }}
+{{- if and .Title (ne (trim (lower .Site.Title) "") (trim (lower .Title) "")) }}
+  {{- if eq .Kind "taxonomy" }}
+    {{- $title = default .Title ( T (lower .Title) ) }}
+  {{- else }}
+    {{- $title = .Title }}
+  {{- end }}
+{{- end }}
+
+<title>{{ with $title }}{{ . }} {{ $separator }} {{ end }}{{ .Site.Title }}</title>
+<meta charset="utf-8">
+
+{{- with $params.ga_verify }}
+  <meta name="google-site-verification" content="{{ . }}">
+{{- end }}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+{{- if (ne hugo.Environment "development") }}
+  {{- partialCached "analytics" . }}
+{{- end }}
+
+{{- partial "opengraph" . }}
+{{- partialCached "favicon" . }}
+
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{ range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+
+<!-- 🔥 GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- 🔥 AOS (ANIMATION LIBRARY) -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- preload assets declaration -->
+{{ $styles := partialCached "func/getStylesBundle" . }}
+<link rel="preload" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" as="style" crossorigin="anonymous">
+
+{{ $bundle := partialCached "func/getJavascriptBundle" . }}
+<link rel="preload" href="{{ $bundle.Permalink }}" as="script" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous">
+
+<!-- main css -->
+<link rel="stylesheet" type="text/css" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+
+<!-- 🔥 YOUR CUSTOM CSS -->
+{{- with $params.customCSS }}
+  {{- range . -}}
+  <link rel="stylesheet" href="{{ relURL . }}">
+  {{- end }}
+{{- end }}
+
+{{- partial "scripts/google/tag-manager" (dict "noscript" false) }}
+
+<!-- 🔥 AOS SCRIPT -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  });
+</script>
+
+<script>
+document.addEventListener("mousemove", function(e) {
+  const glow = document.getElementById("cursor-glow");
+  if (glow) {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+  }
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+tsParticles.load("particles", {
+  particles: {
+    number: { value: 40 },
+    size: { value: 2 },
+    move: { speed: 0.3 },
+    opacity: { value: 0.2 },
+  },
+  background: { color: "transparent" }
+});
+</script>
+
+<script>
+const thoughts = [
+  "build > consume",
+  "systems over hacks",
+  "consistency compounds",
+  "learn in public",
+  "clarity comes from doing"
+];
+
+function showThought() {
+  const el = document.getElementById("thoughts");
+  el.innerText = thoughts[Math.floor(Math.random() * thoughts.length)];
+  el.style.opacity = 0;
+
+  setTimeout(() => {
+    el.style.opacity = 0.6;
+  }, 200);
+}
+
+setInterval(showThought, 4000);
+showThought();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const thoughts = [
+    "build > consume",
+    "systems over hacks",
+    "consistency compounds",
+    "learn in public",
+    "clarity comes from doing"
+  ];
+
+  const el = document.getElementById("thoughts");
+
+  function showThought() {
+    if (!el) return;
+
+    el.style.opacity = 0;
+
+    setTimeout(() => {
+      el.innerText = thoughts[Math.floor(Math.random() * thoughts.length)];
+      el.style.opacity = 0.6;
+    }, 300);
+  }
+
+  showThought(); // first time
+  setInterval(showThought, 4000); // every 4 sec
+
+});
+</script>
+
+<script>
+document.querySelectorAll(".post-card").forEach(card => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    card.style.transform = `translate(${x * 0.05}px, ${y * 0.05}px) scale(1.02)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "translate(0,0) scale(1)";
+  });
+});
+</script>

@@ -1,0 +1,58 @@
+{{ $pages := .Pages }}
+{{ if .IsHome }}
+  {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ end }}
+
+{{ if eq site.Params.pinFeatured true }}
+  {{ $featured := default 8 site.Params.numberOfPinnedPosts }}
+  {{ $featuredPosts := first $featured (where $pages "Params.featured" true)}}
+  {{ $normalPosts := $pages | symdiff $featuredPosts }}
+  {{ $pages = $featuredPosts | append $normalPosts }}
+{{ end }}
+
+<!-- 🔥 HERO SECTION START -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 id="typing"></h1>
+    <p class="tagline">
+      I build things, break things, and write what I learn.
+    </p>
+
+    <div class="now">
+      <p>Currently exploring:</p>
+      <ul>
+        <li>→ LLMs</li>
+        <li>→ DevOps</li>
+        <li>→ Systems</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- 🔥 HERO SECTION END -->
+
+<div class="grid-inverse wrap content">
+  <div>
+    <ul class="posts" id="posts">
+      {{- range (.Paginate $pages).Pages }}
+        {{ partial "excerpt" . }}
+      {{- end }}
+      <li>
+        {{- template "_internal/pagination.html" . }}
+      </li>
+    </ul>
+  </div>
+  {{- partial "sidebar" . }}
+</div>
+
+<script>
+const text = "Hi, I'm Angel";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 80);
+  }
+}
+type();
+</script>
