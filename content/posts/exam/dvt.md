@@ -304,26 +304,24 @@ import requests
 import matplotlib.pyplot as plt
 import time
 
-API_KEY = "YOUR_API_KEY"
 CITY = "Hyderabad"
-
 temps = []
 
-for i in range(5):      # collect 5 readings
+for i in range(5):
 
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric"
+    url = f"https://wttr.in/{CITY}?format=j1"
 
     data = requests.get(url).json()
 
-    if "main" in data:
-        temps.append(data["main"]["temp"])
+    temp = float(data["current_condition"][0]["temp_C"])
+    temps.append(temp)
 
     time.sleep(2)
 
 plt.plot(temps, marker='o')
 plt.title("Streaming Weather Data")
 plt.xlabel("Reading")
-plt.ylabel("Temperature")
+plt.ylabel("Temperature (°C)")
 plt.show()
 ```
 #### stock market code
