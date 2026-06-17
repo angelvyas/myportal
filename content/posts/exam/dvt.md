@@ -199,7 +199,7 @@ plt.show()
 ```
 
 ### time series analysis - stock market 
-```c
+```python
 import yfinance as yf
 import matplotlib.pyplot as plt
 import seaborn as sns
