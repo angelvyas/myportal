@@ -1,7 +1,7 @@
 ---
 title: 'practise'
 date: 2026-06-01
-draft:  false
+draft:  true
 featured: false  
 description: "networks"
 thumbnail: "/posts/exam/images/.png"
